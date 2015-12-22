@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name">Engine Calculator</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="yes">SÍ</string>
+    <string name="no">NO</string>
+
+    <string name="item1"> • Framingham (usando lípidos)</string>
+    <string name="item2"> • Riesgo enfermedad coronaria</string>
+    <string name="item3"> • Síndrome metabólico</string>
+    <string name="item4"> • Índice de masa corporal</string>
+    <string name="item5"> • Riesgo cardiaco postoperatorio</string>
+    <string name="item6"> • Productos Asofarma</string>
+    <string name="item7"> • Menu </string>
+
+
+    <string name="prueba">&#xf11b;</string>
+    <string name="share">Compartir ...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    //Text calculator
+    <string name="male">Masculino</string>
+    <string name="female">Femenino</string>
+    <string name="age">Edad:</string>
+    <string name="Systolic_pressure">Presión sistólica (mmHg):</string>
+    <string name="Diastolic_pressure">Presión diastólica (mmHg):</string>
+    <string name="hypertension">¿Está en tratamiento para  <br />la hipertensión?</string>
+    <string name="smokes">¿Fuma en la actualidad?</string>
+    <string name="diabetic">¿Es diabético?</string>
+    <string name="HDL_cholesterol">Colesterol HDL:</string>
+    <string name="total_cholesterol">Colesterol total:</string>
+    <string name="btnCalculate">Calcular</string>
+    <string name="waistCircumference">Circunferencia de cintura:</string>
+    <string name="triglicéridos">Nivel de triglicéridos (mg/dL):</string>
+    <string name="Glucose">Glucosa en ayunas (mg/dL):</string>
+    <string name="metabolicSyndrome">Síndrome metabólico:</string>
+    <string name="stature">Estatura:</string>
+    <string name="weight">Peso:</string>
+    <string name="risk0">Tercer ruido cardiaco o distención venosa yugular</string>
+    <string name="risk1">Infarto agudo de miocardio en los últimos 6 meses</string>
+    <string name="risk2">Ritmo no sinusal o contracción atrial prematura en ECG</string>
+    <string name="risk3">Más de 5 contracciones ventriculares prematuras</string>
+    <string name="risk4">Edad mayor a 70 años</string>
+    <string name="risk5">Operaciones de emergencia</string>
+    <string name="risk6">Mala condición médica general</string>
+    <string name="risk7">Cirugía intratorácica, intraperitoneal o aórtica</string>
+    <string name="risk8">Estenosis valvular aórtica importante</string>
+    <string name="references">Referencias:</string>
+    <string name="observations">Observaciones:</string>
+
+     //Message calculation
+    <string name="message_risk">Riesgo cardiovascular:</string>
+    <string name="message_risk1">Riesgo normal según edad y sexo:</string>
+    <string name="message_risk2">Riesgo óptimo según edad y sexo:</string>
+    <string name="message_risk3">Su edad Cardiovascular en años es :</string>
+    <string name="message_risk4">Riesgo de enfermedad coronaria :</string>
+    <string name="message_risk5">Paciente con síndrome metabólico :</string>
+    <string name="message_risk6">Su IMC es </string>
+    <string name="years"> años </string>
+    <string name="title_item1">Predicción de riesgo de ECV usando lípidos </string>
+    <string name="title_item2">Predicción de riesgo enfermedad coronaria </string>
+    <string name="title_item3">Predicción del síndrome metabólico </string>
+    <string name="title_item4">Calculo de índice de masa corporal</string>
+    <string name="title_item5">Calculo de riesgo cardiaco postoperatorio</string>
+
+
+    //Degree of obesity
+    <string-array name="degradeObesity">
+        <item>Este es un paciente con bajo peso</item>
+        <item>Este es un paciente con peso normal</item>
+        <item>Este es un paciente con sobrepeso</item>
+        <item>Este es un paciente con obesidad grado I</item>
+        <item>Este es un paciente con obesidad grado II</item>
+        <item>Este es un paciente con obesidad grado III</item>
+    </string-array>
+
+    //Degree of obesity
+    <string-array name="Postoperative">
+        <item>Este es un paciente clase I</item>
+        <item>Este es un paciente clase II</item>
+        <item>Este es un paciente clase III</item>
+        <item>Este es un paciente clase IV</item>
+
+    </string-array>
+    <string name="PostoperativeMessage0">Su tasa de complicación es:</string>
+    <string name="PostoperativeMessage1">Su tasa de complicaciones graves es:</string>
+    <string name="PostoperativeMessage2">Su tasa de muerte cardiaca es:</string>
+
+    //Font
+    <string name="fontawesome">fonts/fontawesome.ttf</string>
+    <string name="flaticon">fonts/flaticon.ttf</string>
+
+    <string name="blood">&#xe000;</string>
+    <string name="cigarette">&#xe901;</string>
+    <string name="fat">&#xe902;</string>
+    <string name="hearbeat">&#xe903;</string>
+    <string name="sex">&#xe905;</string>
+    <string name="measure">&#xe005;</string>
+    <string name="medical">&#xe907;</string>
+    <string name="olives">&#xe007;</string>
+    <string name="raindrop">&#xe008;</string>
+    <string name="rules">&#xe90a;</string>
+    <string name="time">&#xe00a;</string>
+    <string name="toolWeight">&#xe00b;</string>
+    <string name="waterBlack">&#xe00c;</string>
+    <string name="weightIcon">&#xe90c;</string>
+
+
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main_splash_screen">MainSplashScreen</string>
+    //User messages
+    <string name="messages1">Todos los campos son necesarios </string>//incomplete data
+    <string name="messages2">Por favor, verifique los tipos de datos ingresados  </string>//type data
+    <string name="messages3">Se presenta un inconveniente con la operación  </string>//Try catch
+    <string name="messages4">Se presenta un inconveniente al compartir  </string>//error send
+
+    //References
+    <string name="ref1"></string>
+    <string name="ref2"></string>
+    <string name="ref3"></string>
+    <string name="ref4"></string>
+
+
+</resources>

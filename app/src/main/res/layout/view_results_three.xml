@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/containerDialog"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:gravity="center"
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/Btn_Previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_previous"
+            android:padding="3dp" />
+
+        <ImageView
+            android:id="@+id/Btn_Share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@mipmap/ic_share"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="5dp"
+            android:padding="3dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_above="@+id/scrollView3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/title_item2"
+                android:id="@+id/textView11"
+                android:layout_marginBottom="10dp"
+                android:textSize="@dimen/fontSizeTitle" />
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:max="100"
+                android:maxHeight="30dp"
+                android:progressDrawable="@drawable/custom_progressbar"
+                android:indeterminate="false" />
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/message_risk4"
+                    android:id="@+id/textView14"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/fontSize"
+
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toLeftOf="@+id/container"
+                    android:layout_toStartOf="@+id/container" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/shape"
+                    android:id="@+id/container"
+                    android:elevation="5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="400%"
+                        android:id="@+id/textViewResult1"
+                        android:textStyle="bold"
+                        android:textColor="#050505"
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textMultiLine"
+                android:hint="@string/observations"
+                android:ems="10"
+                android:textSize="@dimen/fontSize"
+                android:id="@+id/editText"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:layout_weight="0.10" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:id="@+id/scrollView3"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/references"
+                android:id="@+id/textView21"
+                android:layout_margin="10dp"
+                android:layout_gravity="left"
+                android:textSize="@dimen/fontSizeTitle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="&lt;b>1.&lt;/b> Halub M, Sidwell R. Cardiac Risk Stratification and Protection. Surg Clin N Am 95 (2015) 217–235. \n\n&lt;b>2.&lt;/b> raus, J, et al. Consenso de evaluación del riesgo cardiovascular en cirugía no cardíaca. Rev Arg Cardiol. 2005;73(5):381-396. "
+                android:id="@+id/textViewReference"
+                android:textSize="@dimen/fontSizeMin"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_margin="10dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
