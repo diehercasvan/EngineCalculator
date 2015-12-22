@@ -8,13 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.edibca.enginecalculator.R;
 import com.larvalabs.svgandroid.SVG;
 import com.larvalabs.svgandroid.SVGParser;
-
 
 import java.util.ArrayList;
 
@@ -29,7 +29,8 @@ public class DialogResultsFour extends DialogFragment implements View.OnClickLis
     private SVG svg;
     public static ArrayList<String> sAnswer =new ArrayList<>();
     private Screen_Email OBJ_screen_email;
-    private RelativeLayout relativeLayout;
+    private EditText editTextObservation;
+    private ArrayList<String> listSeadPDF;
 
 
     public DialogResultsFour() {
@@ -39,6 +40,8 @@ public class DialogResultsFour extends DialogFragment implements View.OnClickLis
         this.imageViews = new ImageView[3];
         this.dialog = null;
         this.svg=null;
+        this.listSeadPDF=new ArrayList<>();
+        this.editTextObservation=null;
     }
 
     @Nullable
@@ -65,10 +68,10 @@ public class DialogResultsFour extends DialogFragment implements View.OnClickLis
 
             textViews[0].setText(sAnswer.get(0));
             textViews[1].setText(sAnswer.get(1));
-            relativeLayout=(RelativeLayout)view.findViewById(R.id.containerDialog);
+
 
             try {
-                svg = SVGParser.getSVGFromResource(getResources(), Integer.parseInt(sAnswer.get(2)));
+                svg = SVGParser.getSVGFromResource(getResources(),Integer.parseInt(sAnswer.get(2)) );
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -76,6 +79,7 @@ public class DialogResultsFour extends DialogFragment implements View.OnClickLis
             }
             imageViews[2].setLayerType(View.LAYER_TYPE_SOFTWARE, null);
             imageViews[2].setImageDrawable(svg.createPictureDrawable());
+            editTextObservation=(EditText)view.findViewById(R.id.editTextObservation);
 
         } catch (Exception e) {
             General.printToast(R.string.messages3);
@@ -94,8 +98,8 @@ public class DialogResultsFour extends DialogFragment implements View.OnClickLis
                 break;
             case R.id.Btn_Share:
                 try {
-                    OBJ_screen_email = new Screen_Email(relativeLayout);
-                    OBJ_screen_email.createScreen();
+                    OBJ_screen_email = new Screen_Email(loadDataPDF());
+                    OBJ_screen_email.createPDF();
                 }
                 catch (Exception e){
                     General.printToast(R.string.messages4);
@@ -104,7 +108,47 @@ public class DialogResultsFour extends DialogFragment implements View.OnClickLis
         }
 
     }
+    public String  loadDataPDF(){
+        String sDataPDF="";
 
+
+        listSeadPDF.add(getResources().getString(R.string.title_item4));//Title
+        listSeadPDF.add(sAnswer.get(0));
+        listSeadPDF.add(sAnswer.get(1));
+        listSeadPDF.add(getResources().getString(R.string.observations));
+        listSeadPDF.add(editTextObservation.getText().toString());
+
+
+
+        sDataPDF="</head>\n" +
+                "\n" +
+                "<body>\n" +
+                "<div  id=\"container\">\n" +
+                "  <div id=\"header\">\n" +
+                "    <h2>"+listSeadPDF.get(0)+"</h2>\n" +
+                "  </div>\n" +
+                "  <div id=\"containerGeneral\">\n" +
+                "    <div class=\"separator\"></div>\n" +
+                "    <div class=\"infoRight\">\n" +
+                "      <p>"+listSeadPDF.get(2)+"</p>\n" +
+                "    </div>\n" +
+                "    <div class=\"infoLeft\">\n" +
+                "      <p>"+listSeadPDF.get(1)+"</p>\n" +
+                "    </div>\n" +
+                "    <div class=\"separator\"></div>\n" +
+                "  </div>\n" +
+                "  <div class=\"separator\"></div>\n" +
+                "  <div id=\"observations\">\n" +
+                "    <h4>"+listSeadPDF.get(3)+"</h4>\n" +
+                "    <p> "+listSeadPDF.get(4)+"</p>\n" +
+                "  </div>\n" +
+                "</div>\n" +
+                "</body>\n" +
+                "</html>";
+
+        return  sDataPDF;
+
+    }
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         dialog = super.onCreateDialog(savedInstanceState);

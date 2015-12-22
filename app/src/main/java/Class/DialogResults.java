@@ -8,12 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.edibca.enginecalculator.R;
-
 import java.util.ArrayList;
 
 /**
@@ -24,10 +23,12 @@ public class DialogResults extends DialogFragment implements View.OnClickListene
     private ProgressBar[] progressBars;
     private TextView[] textViews;
     private ImageView[] imageViews;
+    private EditText editTextObservation;
+    private ArrayList<String> listSeadPDF;
     private Dialog dialog;
-    public  static ArrayList<Double> list= new ArrayList<>();
+    public  static ArrayList<Double> sAnswer= new ArrayList<>();
     private Screen_Email OBJ_screen_email;
-    private RelativeLayout relativeLayout;
+
 
 
 
@@ -39,7 +40,8 @@ public class DialogResults extends DialogFragment implements View.OnClickListene
         this.imageViews = new ImageView[2];
         this.dialog = null;
         this.OBJ_screen_email=null;
-        this.relativeLayout=null;
+        this.listSeadPDF=new ArrayList<>();
+        this.editTextObservation=null;
 
 
     }
@@ -50,7 +52,7 @@ public class DialogResults extends DialogFragment implements View.OnClickListene
 
         view = inflater.inflate(R.layout.view_results_two, container, false);
 
-            loadView();
+        loadView();
 
 
         return view;
@@ -72,16 +74,52 @@ public class DialogResults extends DialogFragment implements View.OnClickListene
         imageViews[0].setOnClickListener(this);
         imageViews[1].setOnClickListener(this);
 
-        textViews[0].setText(getResources().getString(R.string.message_risk) + " " + list.get(0) + "%");
-        textViews[1].setText(getResources().getString(R.string.message_risk1) + " " + list.get(1) + "%");
-        textViews[2].setText(getResources().getString(R.string.message_risk2) + " " + list.get(2) + "%");
-        textViews[3].setText("" + new Double(list.get(3)).intValue());
+        textViews[0].setText(getResources().getString(R.string.message_risk) + " " + sAnswer.get(0) + "%");
+        textViews[1].setText(getResources().getString(R.string.message_risk1) + " " + sAnswer.get(1) + "%");
+        textViews[2].setText(getResources().getString(R.string.message_risk2) + " " + sAnswer.get(2) + "%");
+        textViews[3].setText("" + new Double(sAnswer.get(3)).intValue());
 
-        progressBars[0].setProgress(new Double(list.get(0)).intValue());
-        progressBars[1].setProgress(new Double(list.get(1)).intValue());
-        progressBars[2].setProgress(new Double(list.get(2)).intValue());
+        progressBars[0].setProgress(new Double(sAnswer.get(0)).intValue());
+        progressBars[1].setProgress(new Double(sAnswer.get(1)).intValue());
+        progressBars[2].setProgress(new Double(sAnswer.get(2)).intValue());
 
-        relativeLayout=(RelativeLayout)view.findViewById(R.id.containerDialog);
+        editTextObservation=(EditText)view.findViewById(R.id.editTextObservation);
+    }
+    public String  loadDataPDF(){
+        String sDataPDF="";
+
+
+        listSeadPDF.add(getResources().getString(R.string.title_item1));//Title
+        listSeadPDF.add(getResources().getString(R.string.message_risk));
+        listSeadPDF.add(sAnswer.get(0) + "%");
+        listSeadPDF.add(getResources().getString(R.string.message_risk1));
+        listSeadPDF.add(sAnswer.get(1) + "%");
+        listSeadPDF.add(getResources().getString(R.string.message_risk2));
+        listSeadPDF.add(sAnswer.get(2) + "%");
+        listSeadPDF.add(getResources().getString(R.string.message_risk3));
+        listSeadPDF.add("" + new Double(sAnswer.get(3)).intValue());
+        listSeadPDF.add(getResources().getString(R.string.observations));
+        listSeadPDF.add(editTextObservation.getText().toString());
+
+
+
+        sDataPDF="</head><body><div id=\"container\"><div id=\"header\"><h2>"+listSeadPDF.get(0)+"</h2>\n" +
+                "  </div><div id=\"containerGeneral\"><div class=\"separator\"></div><div class=\"infoRight\">\n" +
+                "    <p>"+listSeadPDF.get(2)+"</p>\n" +
+                "  </div><div class=\"infoLeft\">\n" +
+                "    <p>"+listSeadPDF.get(1)+"</p>\n" +
+                "  </div><div class=\"separator\"></div><div class=\"infoRight\">\n" +
+                "    <p>"+listSeadPDF.get(4)+"</p></div><div class=\"infoLeft\">\n" +
+                "    <p>"+listSeadPDF.get(3)+"</p></div><div class=\"separator\"></div><div class=\"infoRight\">\n" +
+                "    <p>"+listSeadPDF.get(6)+"</p></div><div class=\"infoLeft\">\n" +
+                "    <p>"+listSeadPDF.get(5)+"</p></div><div class=\"separator\"></div><div class=\"infoRight\">\n" +
+                "    <p>"+listSeadPDF.get(8)+"</p></div><div class=\"infoLeft\" >\n" +
+                "    <p>"+listSeadPDF.get(7)+"</p></div></div><div class=\"separator\"></div><div id=\"observations\">\n" +
+                " \t<h4>"+listSeadPDF.get(9)+"</h4>\n" +
+                "    <p>"+listSeadPDF.get(10)+"</p></div></div></body></html>\n";
+
+        return  sDataPDF;
+
     }
 
     @Override
@@ -93,8 +131,8 @@ public class DialogResults extends DialogFragment implements View.OnClickListene
                 break;
             case R.id.Btn_Share:
                 try {
-                    OBJ_screen_email = new Screen_Email(relativeLayout);
-                    OBJ_screen_email.createScreen();
+                    OBJ_screen_email = new Screen_Email(loadDataPDF());
+                    OBJ_screen_email.createPDF();
                 }
                 catch (Exception e){
                     General.printToast(R.string.messages4);

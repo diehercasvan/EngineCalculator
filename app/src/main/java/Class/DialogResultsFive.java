@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ public class DialogResultsFive extends DialogFragment implements View.OnClickLis
     public static ArrayList<String> sAnswer =new ArrayList<>();
     private Screen_Email OBJ_screen_email;
     private RelativeLayout relativeLayout;
+    private EditText editTextObservation;
+    private ArrayList<String> listSeadPDF;
 
 
 
@@ -35,6 +38,8 @@ public class DialogResultsFive extends DialogFragment implements View.OnClickLis
         this.textViews = new TextView[4];
         this.imageViews = new ImageView[3];
         this.dialog = null;
+        this.editTextObservation=null;
+        this.listSeadPDF=new ArrayList<>();
 
     }
 
@@ -67,7 +72,7 @@ public class DialogResultsFive extends DialogFragment implements View.OnClickLis
             textViews[2].setText(sAnswer.get(2));
             textViews[3].setText(sAnswer.get(3));
             relativeLayout=(RelativeLayout)view.findViewById(R.id.containerDialog);
-
+            editTextObservation=(EditText)view.findViewById(R.id.editTextObservation);
 
 
         } catch (Exception e) {
@@ -76,7 +81,41 @@ public class DialogResultsFive extends DialogFragment implements View.OnClickLis
 
 
     }
+    public String  loadDataPDF(){
+        String sDataPDF="";
 
+
+        listSeadPDF.add(getResources().getString(R.string.title_item5));//Title
+        listSeadPDF.add(getResources().getString(R.string.PostoperativeMessage0));
+        listSeadPDF.add(sAnswer.get(0) );
+        listSeadPDF.add(getResources().getString(R.string.PostoperativeMessage1));
+        listSeadPDF.add(sAnswer.get(1) );
+        listSeadPDF.add(getResources().getString(R.string.PostoperativeMessage2));
+        listSeadPDF.add(sAnswer.get(2) );
+        listSeadPDF.add(getResources().getString(R.string.PostoperativeMessage2));
+        listSeadPDF.add(sAnswer.get(3));
+        listSeadPDF.add(getResources().getString(R.string.observations));
+        listSeadPDF.add(editTextObservation.getText().toString());
+
+
+
+        sDataPDF="</head><body><div id=\"container\"><div id=\"header\"><h2>"+listSeadPDF.get(0)+"</h2>\n" +
+                "  </div><div id=\"containerGeneral\"><div class=\"separator\"></div><div class=\"infoRight\">\n" +
+                "    <p>"+listSeadPDF.get(2)+"</p>\n" +
+                "  </div><div class=\"infoLeft\">\n" +
+                "    <p>"+listSeadPDF.get(1)+"</p>\n" +
+                "  </div><div class=\"separator\"></div><div class=\"infoRight\">\n" +
+                "    <p>"+listSeadPDF.get(4)+"</p></div><div class=\"infoLeft\">\n" +
+                "    <p>"+listSeadPDF.get(3)+"</p></div><div class=\"separator\"></div><div class=\"infoRight\">\n" +
+                "    <p>"+listSeadPDF.get(6)+"</p></div><div class=\"infoLeft\">\n" +
+                "    <p>"+listSeadPDF.get(5)+"</p></div><div class=\"separator\"></div><div class=\"infoRight\">\n" +
+                "    <p>"+listSeadPDF.get(8)+"</p></div></div><div class=\"separator\"></div><div id=\"observations\">\n" +
+                " \t<h4>"+listSeadPDF.get(9)+"</h4>\n" +
+                "    <p>"+listSeadPDF.get(10)+"</p></div></div></body></html>\n";
+
+        return  sDataPDF;
+
+    }
     @Override
     public void onClick(View v) {
 
@@ -87,8 +126,8 @@ public class DialogResultsFive extends DialogFragment implements View.OnClickLis
                 break;
             case R.id.Btn_Share:
                 try {
-                    OBJ_screen_email = new Screen_Email(relativeLayout);
-                    OBJ_screen_email.createScreen();
+                    OBJ_screen_email = new Screen_Email(loadDataPDF());
+                    OBJ_screen_email.createPDF();
                 }
                 catch (Exception e){
                     General.printToast(R.string.messages4);

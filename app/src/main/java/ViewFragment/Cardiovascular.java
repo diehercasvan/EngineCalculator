@@ -172,7 +172,7 @@ public class Cardiovascular extends Fragment implements View.OnClickListener, Ra
         double riskVal = listResult.get(0);
         DialogResults dialogPerson = new DialogResults();
         listResult.add(calcHeartAge(riskVal, editTexts[0].getText().toString()));
-        dialogPerson.list = listResult;
+        dialogPerson.sAnswer = listResult;
         FragmentManager fragmentManager = getFragmentManager();
         dialogPerson.show(fragmentManager, "Dialogo Personalizado");
 

@@ -24,6 +24,9 @@ public class General {
     public static String NAME_FOLDER_MAIL;
     public static String[] MAIL_CONTENT;
     public static int iIDLogo;
+    public static String CONTENT_HTML;
+    public static String CONTENT_CSS;
+
 
     public General(Activity activity, Context context,String route) {
 
@@ -33,6 +36,8 @@ public class General {
         this.MAIL_CONTENT= new String []{"","Atlas Information",""};
         this.NAME_FOLDER_MAIL="Pictures";
         this.iIDLogo=R.raw.logos;
+        this.CONTENT_HTML="<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><title>Calculator PDF</title>";
+        this.CONTENT_CSS="<style type=\"text/css\">html, body {text-align: center;}#container{width: auto;height: auto;margin: auto;background: transparent !important;text-align: center;padding: 10px;color:#333;}#container h2 {margin: 0;padding: 0;color:white;}#header {width: auto;height:50px;box-shadow: 0px 0px 10px #8c0000;background: #8c0000;margin: auto;}.infoRight {width: 340px;height:50px;background:#CCC;float: right;border: 5px solid #FFF;font-weight:bold;}.infoLeft {width: 340px;height: 50px;background:#CCC;float: left;border: 5px solid #FFF;}.separator {width: auto;height: 30px;}#observations {width: auto;height: auto;background:#FFF;float: left;border: 3px solid #CCC;}#observations p{text-align:left;padding:5px;}#observations h4{text-align:left;padding:5px;}</style>";
 
 
     }

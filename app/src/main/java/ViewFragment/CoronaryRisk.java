@@ -166,7 +166,7 @@ public class CoronaryRisk extends Fragment implements View.OnClickListener, Radi
 
 
         DialogResultsTwo dialogPerson = new DialogResultsTwo();
-        dialogPerson.list = listResult;
+        dialogPerson.sAnswer = listResult;
         FragmentManager fragmentManager = getFragmentManager();
         dialogPerson.show(fragmentManager, "Dialogo Personalizado");
     }

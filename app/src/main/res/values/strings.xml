@@ -118,6 +118,7 @@
     <string name="messages2">Por favor, verifique los tipos de datos ingresados  </string>//type data
     <string name="messages3">Se presenta un inconveniente con la operación  </string>//Try catch
     <string name="messages4">Se presenta un inconveniente al compartir  </string>//error send
+    <string name="messages5">Cargando  PDF....  </string>//error send
 
     //References
     <string name="ref1"></string>

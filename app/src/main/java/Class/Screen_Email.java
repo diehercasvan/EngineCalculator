@@ -8,11 +8,20 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.edibca.enginecalculator.R;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.tool.xml.XMLWorkerHelper;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.StringReader;
+
+import com.edibca.enginecalculator.R;
 
 /**
  * Created by DIEGO CASALLAS on 20/05/2015.
@@ -27,17 +36,31 @@ public class Screen_Email {
     private View view;
     private Bitmap bitmap;
     private Activity activity;
+    private String NAME_FILE;
+    private static final String NAME_FILE_APP = "calculator";
+    private  String sContentHtml;
+    private  String sContentCss;
+    private  String sNewHTML;
+
+
 
     public Screen_Email(RelativeLayout frameLayout) {
 
-        view = frameLayout;
-        //view=getWindow().getDecorView().getRootView() General;
-        // View v1 = iv.getRootView(); //even this works
-        // View v1 = findViewById(android.R.id.content); //this works too
+        this.view = frameLayout;
+        this.sRoute = General.ROUTE;
+        this.sNameFolder = General.NAME_FOLDER_MAIL;
+        this.activity = General.ACTIVITY;
+    }
 
-        sRoute = General.ROUTE;
-        sNameFolder = General.NAME_FOLDER_MAIL;
-        activity = General.ACTIVITY;
+    public Screen_Email(String sHtml) {
+
+
+        this.sRoute = General.ROUTE;
+        this.sNameFolder = General.NAME_FOLDER_MAIL;
+        this.activity = General.ACTIVITY;
+        this.sContentHtml=General.CONTENT_HTML;
+        this.sContentCss=General.CONTENT_CSS;
+        this.sNewHTML=sContentHtml+sContentCss+sHtml;
     }
 
     public void createScreen() {
@@ -51,9 +74,8 @@ public class Screen_Email {
 
     public void saveBitmap(Bitmap bitmap) {
 
-
-        sFilePath = Environment.getExternalStorageDirectory()
-                + File.separator + sNameFolder + "/screenshot.png";
+        NAME_FILE = "screenshot";
+        sFilePath = Environment.getExternalStorageDirectory() + File.separator + sNameFolder + "/" + NAME_FILE + ".png";
         file = new File(sFilePath);
 
 
@@ -64,7 +86,7 @@ public class Screen_Email {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
             fileOutputStream.flush();
             fileOutputStream.close();
-            sendMail(sFilePath);
+            sendMail(sFilePath, 0);
         } catch (FileNotFoundException e) {
             Log.e("GREC", e.getMessage(), e);
         } catch (IOException e) {
@@ -72,18 +94,68 @@ public class Screen_Email {
         }
     }
 
-    public void sendMail(String path) {
+    public void createPDF() {
+        NAME_FILE = "Data_pdf_calculator.pdf";
+        Document document = new Document(PageSize.LETTER);
+        sFilePath = Environment.getExternalStorageDirectory() + File.separator + sNameFolder + "/" + NAME_FILE + ".png";
+        file = new File(sFilePath);
+
+        String SD_Card = Environment.getExternalStorageDirectory().toString();
+        File filePDF = new File(SD_Card + File.separator + NAME_FILE_APP);
+        if (!filePDF.exists()) {
+            filePDF.mkdir();
+        }
+        File pdfSubDir = new File(filePDF.getPath() + File.separator + sNameFolder);
+        if (!pdfSubDir.exists()) {
+            pdfSubDir.mkdir();
+        }
+        String NameFull = Environment.getExternalStorageDirectory() + File.separator + NAME_FILE_APP + File.separator + sNameFolder + File.separator + NAME_FILE;
+
+        File outPutFile = new File(NameFull);
+        if (outPutFile.exists()) {
+            outPutFile.delete();
+        }
+        try {
+            PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(NameFull));
+            //Create  document
+            document.open();
+
+            document.addAuthor("Diego Casallas Vanegas ");
+            document.addCreator("KREATOR");
+            document.addSubject("Thank you");
+            document.addCreationDate();
+            document.addTitle("Titule ");
+
+            XMLWorkerHelper xmlWorkerHelper = XMLWorkerHelper.getInstance();
+            xmlWorkerHelper.parseXHtml(pdfWriter, document, new StringReader(sNewHTML));
+            document.close();
+            General.printToast(R.string.messages5);
+            sendMail(NameFull, 1);
+
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void sendMail(String path, int type) {
         try {
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
             emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{General.MAIL_CONTENT[0]});
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, General.MAIL_CONTENT[1]);
             emailIntent.putExtra(Intent.EXTRA_TEXT, General.MAIL_CONTENT[2]);
-
-            emailIntent.setType("image/png");
+            if (type == 0) {
+                emailIntent.setType("image/png");
+            } else {
+                emailIntent.setType("application/pdf");
+            }
             Uri myUri = Uri.parse("file://" + path);
             emailIntent.putExtra(Intent.EXTRA_STREAM, myUri);
-
-            activity.startActivity(Intent.createChooser(emailIntent,activity.getString(R.string.share) ));
+            activity.startActivity(Intent.createChooser(emailIntent, activity.getString(R.string.share)));
         } catch (Exception e) {
 
             General.printToast(R.string.messages4);
@@ -107,7 +179,6 @@ public class Screen_Email {
         emailIntent.putExtra(Intent.EXTRA_STREAM, myUri);*/
         activity.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
     }
-
 
 }
 
