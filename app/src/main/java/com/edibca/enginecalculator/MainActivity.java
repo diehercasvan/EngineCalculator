@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 import Class.*;
 import ViewFragment.ContainerFragment;
 
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             sTitleApplication = getResources().getString(R.string.app_name);
             menuListener(5);
             selectionTitle(5);
-            bValidaLoad=false;
+            bValidaLoad = false;
         } else {
             getSupportActionBar().setTitle(sTitleApplication);
 
@@ -71,9 +72,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         containerFragment = new ContainerFragment(iSelection);
         fragment = containerFragment.selectionFragment();
+        General.animation(1);
+
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.FrameContainer, fragment).commit();
+
+
+        fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
+        fragmentTransaction.replace(R.id.FrameContainer, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+
         General.deleteCache(this);
 
 
