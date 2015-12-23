@@ -38,7 +38,7 @@ public class ECRiskCalculation {
             double dRisk = 0;
             int score = 0;
 
-            //Hombres
+            //m
             if (iSex == 1) {
                 //Edad
                 if (iAge >= 20 && iAge <= 34) score += -9;

@@ -85,9 +85,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
         }
        myCallback.onclickMenu(iSelectionView);
-        selectionTouhc();
+        selectionTouch();
     }
-    public void selectionTouhc(){
+    public void selectionTouch(){
 
         for(int i=0;i<imageViews.length;i++){
             imageViews[i].setEnabled(false);

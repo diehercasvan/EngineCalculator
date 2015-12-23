@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculadora Asofarma</string>
+    <string name="app_name">Calculadora General</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -119,6 +119,7 @@
     <string name="messages3">Se presenta un inconveniente con la operación  </string>//Try catch
     <string name="messages4">Se presenta un inconveniente al compartir  </string>//error send
     <string name="messages5">Cargando  PDF....  </string>//error send
+    <string name="messages6">Se presenta un inconveniente al crear la imagen  </string>//error send
 
     //References
     <string name="ref1"></string>

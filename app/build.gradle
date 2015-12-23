@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.edibca.enginecalculator"
+        applicationId "com.edibca.general"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
