@@ -84,8 +84,8 @@ public class CardiovascularRiskCalculation {
 
 
             lisDataCalculate.add(Math.round(dRisk * 10000.0) / 100.0);
-            lisDataCalculate.add(Math.round(dOptimumRisk * 10000.0) / 100.0);
             lisDataCalculate.add(Math.round(dRiskNormal * 10000.0) / 100.0);
+            lisDataCalculate.add(Math.round(dOptimumRisk * 10000.0) / 100.0);
 
 
 
