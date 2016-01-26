@@ -103,7 +103,7 @@ public class MetabolicSyndromeCalculation {
                         iNumer++;
                     }
                 }
-                if (iNumer >= 2) bSyndrome = true;
+                if (iNumer >= 3) bSyndrome = true;
             }
         } catch (Exception e) {
             General.printToast(R.string.messages3);
