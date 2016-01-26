@@ -126,5 +126,10 @@
     <string name="ref3"></string>
     <string name="ref4"></string>
 
+    <string name="dialogError">Se presenta un inconveniente con el aplicativo</string>
+    <string name="dialogRestart">Reiniciar </string>
+    <string name="dialogTofinalize">Finalizar </string>
+
 
 </resources>
+
