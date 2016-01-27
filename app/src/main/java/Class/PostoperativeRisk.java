@@ -25,14 +25,14 @@ public class PostoperativeRisk {
 
 
         this.bHeartSound = dto_data.isbHeartSound();
-        this.bAcuteMyocardial = dto_data.isbHeartSound();
-        this.bNoSinusRhythm = dto_data.isbHeartSound();
-        this.bContractions = dto_data.isbHeartSound();
-        this.bAge70 = dto_data.isbHeartSound();
-        this.bOperation = dto_data.isbHeartSound();
-        this.bBatCondition = dto_data.isbHeartSound();
-        this.bSurgery = dto_data.isbHeartSound();
-        this.bValvular = dto_data.isbHeartSound();
+        this.bAcuteMyocardial = dto_data.isbAcuteMyocardial();
+        this.bNoSinusRhythm = dto_data.isbNoSinusRhythm();
+        this.bContractions = dto_data.isbContractions();
+        this.bAge70 = dto_data.isbAge70();
+        this.bOperation = dto_data.isbOperation();
+        this.bBatCondition = dto_data.isbBatCondition();
+        this.bSurgery = dto_data.isbSurgery();
+        this.bValvular = dto_data.isbValvular();
         this.activity=General.ACTIVITY;
     }
 
@@ -57,17 +57,17 @@ public class PostoperativeRisk {
             arrayList.add("0.2%");
             arrayList.add(dResult[0]);
         } else if (iScore >= 6 && iScore <= 12) {
-            arrayList.add("2%");
+            arrayList.add("7%");
             arrayList.add("5%");
             arrayList.add("2%");
             arrayList.add(dResult[1]);
         } else if (iScore >= 13 && iScore <= 25) {
-            arrayList.add("3%");
+            arrayList.add("14%");
             arrayList.add("11%");
             arrayList.add("2%");
             arrayList.add(dResult[2]);
         } else if (iScore >= 26) {
-            arrayList.add("4%");
+            arrayList.add("78%");
             arrayList.add("22%");
             arrayList.add("56%");
             arrayList.add(dResult[3]);

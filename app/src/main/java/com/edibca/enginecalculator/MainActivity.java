@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,13 +22,14 @@ import android.view.MenuItem;
 import Class.*;
 import ViewFragment.ContainerFragment;
 
-
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MyCallback {
     private General ObjGenral;
     private ContainerFragment containerFragment;
     private static boolean bValidaLoad = true;
     private static String sTitleApplication = "";
     private Fragment fragment;
+    private NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,17 +56,66 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         if (bValidaLoad) {
             sTitleApplication = getResources().getString(R.string.app_name);
             menuListener(5);
             selectionTitle(5);
             bValidaLoad = false;
+
         } else {
             getSupportActionBar().setTitle(sTitleApplication);
 
+
         }
+
+
+    }
+
+    public void reloadPreviousPage() {
+        int iSelectionFragment = 0;
+
+        if (getResources().getString(R.string.item1).substring(1, getResources().getString(R.string.item1).length()).trim().equals(sTitleApplication)) {
+
+            iSelectionFragment = 0;
+        } else if (getResources().getString(R.string.item2).substring(1, getResources().getString(R.string.item2).length()).trim().equals(sTitleApplication)) {
+
+            iSelectionFragment = 1;
+        } else if (getResources().getString(R.string.item3).substring(1, getResources().getString(R.string.item3).length()).trim().equals(sTitleApplication)) {
+            iSelectionFragment = 2;
+
+        } else if (getResources().getString(R.string.item4).substring(1, getResources().getString(R.string.item4).length()).trim().equals(sTitleApplication)) {
+            iSelectionFragment = 3;
+
+        } else if (getResources().getString(R.string.item5).substring(1, getResources().getString(R.string.item5).length()).trim().equals(sTitleApplication)) {
+            iSelectionFragment = 4;
+
+        } else if (getResources().getString(R.string.item6).substring(1, getResources().getString(R.string.item6).length()).trim().equals(sTitleApplication)) {
+
+            iSelectionFragment = 5;
+        }
+
+
+        menuListener(iSelectionFragment);
+        selectionTitle(iSelectionFragment);
+
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            if (navigationView.getVisibility() != View.VISIBLE) {
+
+                //reloadPreviousPage();
+                bValidaLoad = true;
+            }
+
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
     public void menuListener(int iSelection) {
@@ -89,12 +140,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    /*
-        @Override
-        protected void attachBaseContext(Context newBase) {
-            super.attachBaseContext(new CalligraphyContextWrapper(newBase));
-        }
-    */
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        super.onSaveInstanceState(outState);
+    }
+
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -193,3 +246,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         selectionTitle(iSelect);
     }
 }
+

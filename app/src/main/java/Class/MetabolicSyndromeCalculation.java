@@ -35,8 +35,8 @@ public class MetabolicSyndromeCalculation {
 
             this.bTreatment = dto_data.isbHypertensionTreatment();
             if(!this.bTreatment){
-            this.iSystolic = Integer.parseInt(dto_data.getsSystolic());
-            this.iDiastolic = Integer.parseInt(dto_data.getsDiastolic());
+                this.iSystolic = Integer.parseInt(dto_data.getsSystolic());
+                this.iDiastolic = Integer.parseInt(dto_data.getsDiastolic());
             }
             this.dGlucose = Double.parseDouble(dto_data.getsGlucose());
             this.iNumer = 0;
@@ -103,7 +103,7 @@ public class MetabolicSyndromeCalculation {
                         iNumer++;
                     }
                 }
-                if (iNumer >= 2) bSyndrome = true;
+                if (iNumer >= 3) bSyndrome = true;
             }
         } catch (Exception e) {
             General.printToast(R.string.messages3);

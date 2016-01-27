@@ -27,7 +27,7 @@ public class ECRiskCalculation {
         this.bSmoker = dto_data.isbSmokes();
         this.bTreatment = dto_data.isbHypertensionTreatment();
         this.iHDLCholesterol = Integer.parseInt(dto_data.getsCholesterolHDL());
-        this.dTotalCholesterol = Math.log(Integer.parseInt(dto_data.getsCholesterolTotal()));
+        this.dTotalCholesterol = Integer.parseInt(dto_data.getsCholesterolTotal());
         this.lisDataCalculate = null;
 
     }
@@ -128,31 +128,31 @@ public class ECRiskCalculation {
 
                 //Presión sistólica vs. Tratamiento
                 if (iSystolicPressure < 120) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 0;
                     } else {
                         score += 0;
                     }
                 } else if (iSystolicPressure >= 120 && iSystolicPressure <= 129) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 0;
                     } else {
                         score += 1;
                     }
                 } else if (iSystolicPressure >= 130 && iSystolicPressure <= 139) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 1;
                     } else {
                         score += 2;
                     }
                 } else if (iSystolicPressure >= 140 && iSystolicPressure <= 159) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 1;
                     } else {
                         score += 2;
                     }
                 } else if (iSystolicPressure >= 160) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 2;
                     } else {
                         score += 3;
@@ -189,7 +189,7 @@ public class ECRiskCalculation {
                 else if (iAge >= 40 && iAge <= 44) score += 0;
                 else if (iAge >= 45 && iAge <= 49) score += 3;
                 else if (iAge >= 50 && iAge <= 54) score += 6;
-                else if (iAge >= 55 && iAge <= 59) score += 8;
+                else if (iAge >= 55 && iAge <= 59) score += 8;///
                 else if (iAge >= 60 && iAge <= 64) score += 10;
                 else if (iAge >= 65 && iAge <= 69) score += 12;
                 else if (iAge >= 70 && iAge <= 74) score += 14;
@@ -226,7 +226,7 @@ public class ECRiskCalculation {
                     if (dTotalCholesterol < 160) {
                         score += 0;
                     } else if (dTotalCholesterol >= 160 && dTotalCholesterol <= 199) {
-                        score += 2;
+                        score += 2;//
                     } else if (dTotalCholesterol >= 200 && dTotalCholesterol <= 239) {
                         score += 4;
                     } else if (dTotalCholesterol >= 240 && dTotalCholesterol <= 279) {
@@ -234,7 +234,7 @@ public class ECRiskCalculation {
                     } else if (dTotalCholesterol >= 280) {
                         score += 7;
                     }
-                    if (bSmoker) score += 4;
+                    if (bSmoker) score += 4;//
                 } else if (iAge >= 60 && iAge <= 69) {
                     if (dTotalCholesterol < 160) {
                         score += 0;
@@ -266,36 +266,36 @@ public class ECRiskCalculation {
                 //HDL
                 if (iHDLCholesterol>= 60) score += -1;
                 else if (iHDLCholesterol >= 50 && iHDLCholesterol <= 59) score += 0;
-                else if (iHDLCholesterol >= 40 && iHDLCholesterol <= 49) score += 1;
+                else if (iHDLCholesterol >= 40 && iHDLCholesterol <= 49) score += 1;//
                 else if (iHDLCholesterol < 40) score += 2;
 
                 //Presión sistólica vs. Tratamiento
                 if (iSystolicPressure < 120) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 0;
                     } else {
                         score += 0;
                     }
                 } else if (iSystolicPressure >= 120 && iSystolicPressure <= 129) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 1;
                     } else {
                         score += 3;
                     }
                 } else if (iSystolicPressure >= 130 && iSystolicPressure <= 139) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 2;
                     } else {
                         score += 4;
                     }
                 } else if (iSystolicPressure >= 140 && iSystolicPressure <= 159) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 3;
                     } else {
                         score += 5;
                     }
                 } else if (iSystolicPressure >= 160) {
-                    if (this.bTreatment) {
+                    if (!this.bTreatment) {
                         score += 4;
                     } else {
                         score += 6;
