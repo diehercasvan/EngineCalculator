@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+
 import Class.*;
 import ViewFragment.ContainerFragment;
 
@@ -120,14 +121,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void menuListener(int iSelection) {
 
-
+        if(iSelection!=6){
         containerFragment = new ContainerFragment(iSelection);
         fragment = containerFragment.selectionFragment();
         General.animation(1);
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
 
         fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
         fragmentTransaction.replace(R.id.FrameContainer, fragment);
@@ -136,7 +136,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         General.deleteCache(this);
-
+        }
+        else{
+            String sNameFile="Fondo_Productos_Tecnofarma.pdf";
+            String sUri="file://" + getFilesDir() + "/"+sNameFile;
+            LoadPdf  loadPdf= new LoadPdf(sUri,sNameFile);
+            loadPdf.CopyReadAssets();
+        }
 
     }
 
@@ -201,6 +207,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.item5:
                 iSelection = 4;
                 break;
+            case R.id.item6:
+                iSelection = 6;
+                break;
 
 
         }
@@ -233,9 +242,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 sTitleApplication = getResources().getString(R.string.item6);
                 break;
 
-        }
-        sTitleApplication = sTitleApplication.substring(1, sTitleApplication.length()).trim();
 
+        }
+        if(selection!=6){
+        sTitleApplication = sTitleApplication.substring(1, sTitleApplication.length()).trim();
+        }
         getSupportActionBar().setTitle(sTitleApplication);
     }
 
