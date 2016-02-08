@@ -35,13 +35,13 @@ public class SplashScreen extends Activity {
                 @Override
                 public boolean onDown(MotionEvent e) {
                     Log.i("Movimiento", "Right to Down");
-                    //  loadNewActivity(1);
+                     //loadNewActivity(2);
                     return true;
                 }
 
                 @Override
-                public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                                       float velocityY) {
+                public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
                     Log.i("Movimiento", "onFling has been called!");
                     final int SWIPE_MIN_DISTANCE = 120;
                     final int SWIPE_MAX_OFF_PATH = 250;
@@ -81,8 +81,10 @@ public class SplashScreen extends Activity {
             finish();
             if (iAnimation == 0) {
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            } else {
+            } else if (iAnimation == 1){
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
+            }else{
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
             }
 
             relativeLayout.setEnabled(false);
