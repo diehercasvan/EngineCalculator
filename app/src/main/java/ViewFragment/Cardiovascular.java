@@ -171,32 +171,31 @@ public class Cardiovascular extends Fragment implements View.OnClickListener, Ra
         listResult = cardiovascularRiskCalculation.calculate();
         double riskVal = listResult.get(0);
         DialogResults dialogPerson = new DialogResults();
-        listResult.add(calcHeartAge(riskVal, editTexts[0].getText().toString()));
+        listResult.add(calcHeartAge(riskVal));
         dialogPerson.sAnswer = listResult;
         FragmentManager fragmentManager = getFragmentManager();
         dialogPerson.show(fragmentManager, "Dialogo Personalizado");
 
     }
 
-    private double calcHeartAge(double riskVal, String gender) {
+    private double calcHeartAge(double riskVal) {
         double loAge = 10;  // no real minimum bound, but 10 is a practical one
         double hiAge = 86;          // 85 is max
-        double testAge = 10;
-        ArrayList<Double> testRisk =new ArrayList<>();
+        double testAge = 0;
+        ArrayList<Double> testRisk;
         CardiovascularRiskCalculation testRiesgoCardio;
 
 
         // threshold should be < half of the desired accuracy (.5 in this case)
         while ((hiAge - loAge) > .2) {
             testAge = (hiAge + loAge) / 2.0;
-
             objDTo.setsAge(String.valueOf((int) Math.round(testAge)));
             testRiesgoCardio = new CardiovascularRiskCalculation(objDTo);
             testRisk = testRiesgoCardio.calculate();
 
-            if (testRisk.get(2) < riskVal) {
+            if (testRisk.get(1) < riskVal) {
                 loAge = testAge;
-            } else if (testRisk.get(2) > riskVal) {
+            } else if (testRisk.get(1) > riskVal) {
                 hiAge = testAge;
             } else {
                 hiAge = testAge;

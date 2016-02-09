@@ -48,7 +48,7 @@ public class CardiovascularRiskCalculation {
             if (iSex == 1) {
                 //treatment
                 if (bTreatment) {
-                    dCoef = (dAge * 3.06117) + (dSystolicPressure * 1.99881) + (dTotalCholesterol * 1.1237) + (dHDLCholesterol * -0.93263) + (iSmoker * 0.65451) + (iDiabetic * 0.57367);
+                    dCoef = (dAge * 3.06117) + (dSystolicPressure * 1.93303) + (dTotalCholesterol * 1.1237) + (dHDLCholesterol * -0.93263) + (iSmoker * 0.65451) + (iDiabetic * 0.57367);
                 }
                 //No treatment
                 else {
@@ -70,8 +70,7 @@ public class CardiovascularRiskCalculation {
                 }
                 //No treatment
                 else {
-                    dCoef = (dAge * 2.32888) + (dSystolicPressure * 2.76157) + (dTotalCholesterol * 1.20904) + (dHDLCholesterol * -0.70833) + (iSmoker * 0.52873)
-                            + (iDiabetic * 0.69154);
+                    dCoef = (dAge * 2.32888) + (dSystolicPressure * 2.76157) + (dTotalCholesterol * 1.20904) + (dHDLCholesterol * -0.70833) + (iSmoker * 0.52873) + (iDiabetic * 0.69154);
                 }
                 dCoefOptimum = (dAge * 2.32888) + (Math.log(110) * 2.76157) + (Math.log(160) * 1.20904) + (Math.log(60) * -0.70833);
                 dCoefNormal = (dAge * 2.32888) + (Math.log(125) * 2.76157) + (Math.log(180) * 1.20904) + (Math.log(45) * -0.70833);
