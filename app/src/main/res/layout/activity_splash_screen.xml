@@ -12,4 +12,11 @@
     android:background="@drawable/fondogeneral"
     android:id="@+id/containerSplash">
 
+    <ImageButton
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/imageButton"
+        android:background="#00ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
