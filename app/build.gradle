@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     defaultConfig {
         applicationId "com.edibca.tecnofarma_calculator"
         minSdkVersion 16
@@ -17,6 +16,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
@@ -28,5 +29,4 @@ dependencies {
     compile files('libs/xmlworker-5.5.6.jar')
     compile files('libs/calligraphy-0.7.0.jar')
     compile files('libs/svg-android.jar')
-
 }
