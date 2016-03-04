@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         if (bValidaLoad) {
             sTitleApplication = getResources().getString(R.string.app_name);
             menuListener(5);

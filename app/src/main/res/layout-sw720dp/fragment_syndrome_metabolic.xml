@@ -10,17 +10,16 @@
 
     <Button
         android:id="@+id/BtnCalculator"
-        style="?android:attr/buttonStyleSmall"
+        style="@style/btn_720"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_gravity="center_horizontal"
-        android:background="@color/colorPrimaryDark"
         android:elevation="2dp"
         android:text="@string/btnCalculate"
-        android:textColor="#ffffff" />
+        />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -38,7 +37,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="100dp"
                 android:background="@drawable/background_logo"
                 android:elevation="5dp"
                 android:gravity="center">
@@ -64,12 +63,12 @@
 
                     <ImageView
                         android:id="@+id/ImgSex"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_column="0"
-                        android:layout_margin="5dp"
+                        android:layout_margin="10dp"
                         android:contentDescription="image sex"
                         android:gravity="center"
                         android:src="@mipmap/ic_sex" />
@@ -93,7 +92,9 @@
                             android:layout_height="wrap_content"
                             android:checked="false"
                             android:text="@string/male"
-                            android:textSize="@dimen/fontSize" />
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textSize="@dimen/fontSize720" />
 
                         <RadioButton
                             android:id="@+id/RadioFamele"
@@ -101,17 +102,18 @@
                             android:layout_height="wrap_content"
                             android:checked="false"
                             android:text="@string/female"
-                            android:textSize="@dimen/fontSize" />
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textSize="@dimen/fontSize720" />
                     </RadioGroup>
 
                     <ImageView
                         android:id="@+id/ImgFat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/ImgSex"
-                        android:layout_column="0"
-                        android:layout_margin="5dp"
+                        android:layout_margin="10dp"
                         android:gravity="center"
                         android:src="@mipmap/ic_fat" />
 
@@ -127,8 +129,7 @@
                         android:layout_toRightOf="@+id/ImgFat"
                         android:gravity="center_vertical"
                         android:text="@string/waistCircumference"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="@dimen/fontSize" />
+                        android:textSize="@dimen/fontSize720" />
 
                     <TextView
                         android:id="@+id/textWaist"
@@ -143,7 +144,7 @@
                         android:padding="2dp"
                         android:text="0 cm"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="@dimen/fontSize" />
+                        android:textSize="@dimen/fontSize720" />
 
                     <SeekBar
                         android:id="@+id/seekBarWaist"
@@ -151,10 +152,13 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ImgFat"
                         android:layout_gravity="center_vertical"
-                        android:layout_margin="5dp"
                         android:indeterminate="false"
                         android:max="200"
-                        android:progress="0" />
+                        android:progress="0"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="5dp" />
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -278,10 +282,10 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/BtnFabReload"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="right"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="55dp"
             android:src="@mipmap/ic_reload"
             app:elevation="3dp" />
 

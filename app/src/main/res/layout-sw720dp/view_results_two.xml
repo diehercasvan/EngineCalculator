@@ -16,17 +16,18 @@
 
         <ImageView
             android:id="@+id/Btn_Previous"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="left"
+
             android:layout_margin="5dp"
             android:src="@mipmap/ic_previous"
             android:padding="3dp" />
 
         <ImageView
             android:id="@+id/Btn_Share"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="right"
             android:src="@mipmap/ic_share"
             android:layout_alignParentEnd="true"
@@ -60,7 +61,8 @@
                 android:text="@string/title_item1"
                 android:id="@+id/textView11"
                 android:layout_marginBottom="10dp"
-                android:textSize="@dimen/fontSizeTitle" />
+                android:textSize="@dimen/fontSize720"
+                android:textIsSelectable="false" />
 
             <TextView
                 android:id="@+id/textViewResult1"
@@ -70,8 +72,9 @@
                 android:layout_margin="5dp"
                 android:text="@string/message_risk"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
-                android:padding="2dp" />
+                android:textSize="@dimen/fontSize720"
+                android:padding="2dp"
+                android:textIsSelectable="false" />
 
             <ProgressBar
                 android:id="@+id/progressBar1"
@@ -97,8 +100,9 @@
                 android:layout_margin="5dp"
                 android:text="@string/message_risk1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
-                android:padding="2dp" />
+                android:textSize="@dimen/fontSize720"
+                android:padding="2dp"
+                android:textIsSelectable="false" />
 
             <ProgressBar
                 android:id="@+id/progressBar2"
@@ -124,8 +128,9 @@
                 android:layout_margin="5dp"
                 android:text="@string/message_risk2"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
-                android:padding="2dp" />
+                android:textSize="@dimen/fontSize720"
+                android:padding="2dp"
+                android:textIsSelectable="false" />
 
             <ProgressBar
                 android:id="@+id/progressBar3"
@@ -148,7 +153,7 @@
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="80dp"
                 android:background="@color/colorPrimary"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -161,7 +166,7 @@
                     android:text="@string/message_risk3"
                     android:id="@+id/textView14"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/fontSize"
+                    android:textSize="@dimen/fontSize720"
 
                     android:textStyle="bold"
                     android:layout_centerVertical="true"
@@ -171,12 +176,13 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_toStartOf="@+id/container"
-                    android:layout_toLeftOf="@+id/container" />
+                    android:layout_toLeftOf="@+id/container"
+                    android:textIsSelectable="false" />
 
                 <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:background="@drawable/shape"
                     android:id="@+id/container"
                     android:elevation="5dp"
@@ -194,7 +200,8 @@
                         android:id="@+id/textViewResultYears"
                         android:textStyle="bold"
                         android:textColor="#050505"
-                        android:textSize="18dp" />
+                        android:textSize="@dimen/fontSize720"
+                        android:textIsSelectable="false" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -205,11 +212,12 @@
                 android:inputType="textMultiLine"
                 android:hint="@string/observations"
                 android:ems="10"
-                android:textSize="@dimen/fontSize"
+                android:textSize="@dimen/fontSize720"
                 android:id="@+id/editTextObservation"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
-                android:layout_weight="0.10" />
+                android:layout_weight="0.10"
+                android:textIsSelectable="false" />
 
         </LinearLayout>
     </ScrollView>
@@ -233,8 +241,9 @@
                     android:layout_margin="10dp"
                     android:text="@string/references"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="14dip"
-                    android:textColor="@color/background_material_dark"/>
+                    android:textSize="@dimen/fontSize720"
+                    android:textColor="@color/background_material_dark"
+                android:textIsSelectable="false" />
 
             <TextView
                     android:id="@+id/textViewReference"

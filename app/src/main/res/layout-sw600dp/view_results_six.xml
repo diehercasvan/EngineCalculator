@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/Btn_Previous"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="left"
 
             android:layout_margin="5dp"
@@ -26,8 +26,8 @@
 
         <ImageView
             android:id="@+id/Btn_Share"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_gravity="right"
             android:layout_margin="5dp"
@@ -60,8 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="@string/title_item5"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSizeTitle" />
+                android:textSize="@dimen/fontSize600" />
 
 
 
@@ -89,8 +88,8 @@
                     android:gravity="center_horizontal"
                     android:textColor="@color/primary_text"
                     android:text="Este es un paciente clase III"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/fontSize600" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -116,9 +115,8 @@
                     android:layout_toLeftOf="@+id/container0"
                     android:layout_toStartOf="@+id/container0"
                     android:text="@string/PostoperativeMessage0"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/fontSize"
+                    android:textSize="@dimen/fontSize600"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -139,9 +137,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5%"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#050505"
-                        android:textSize="16dp"
+                        android:textSize="@dimen/fontSize600"
                         android:textStyle="bold"
                         android:layout_margin="0dp" />
                 </LinearLayout>
@@ -173,7 +170,7 @@
                     android:text="@string/PostoperativeMessage1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/fontSize"
+                    android:textSize="@dimen/fontSize600"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -196,7 +193,7 @@
                         android:text="5%"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#050505"
-                        android:textSize="16dp"
+                        android:textSize="@dimen/fontSize600"
                         android:textStyle="bold"
                         android:layout_margin="0dp" />
                 </LinearLayout>
@@ -228,7 +225,7 @@
                     android:text="@string/PostoperativeMessage2"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/fontSize"
+                    android:textSize="@dimen/fontSize600"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -251,7 +248,7 @@
                         android:text="5%"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#050505"
-                        android:textSize="16dp"
+                        android:textSize="@dimen/fontSize600"
                         android:textStyle="bold"
                         android:layout_margin="0dp" />
                 </LinearLayout>
@@ -272,7 +269,7 @@
                 android:inputType="textMultiLine"
                 android:hint="@string/observations"
                 android:ems="10"
-                android:textSize="@dimen/fontSize"
+                android:textSize="@dimen/fontSize600"
                 android:id="@+id/editTextObservation"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
@@ -300,7 +297,7 @@
                 android:layout_margin="10dp"
                 android:text="@string/references"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="14dip"
+                android:textSize="@dimen/fontSize600"
                 android:textColor="@color/background_material_dark"/>
 
             <TextView

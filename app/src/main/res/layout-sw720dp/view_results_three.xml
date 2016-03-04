@@ -16,17 +16,18 @@
 
         <ImageView
             android:id="@+id/Btn_Previous"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="left"
+
             android:layout_margin="5dp"
             android:src="@mipmap/ic_previous"
             android:padding="3dp" />
 
         <ImageView
             android:id="@+id/Btn_Share"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="right"
             android:src="@mipmap/ic_share"
             android:layout_alignParentEnd="true"
@@ -56,112 +57,38 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/title_item1"
+                android:text="@string/title_item2"
                 android:id="@+id/textView11"
                 android:layout_marginBottom="10dp"
-                android:textSize="@dimen/fontSizeTitle" />
-
-            <TextView
-                android:id="@+id/textViewResult1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical"
-                android:layout_margin="5dp"
-                android:text="@string/message_risk"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
-                android:padding="2dp" />
+                android:textSize="@dimen/fontSize720" />
 
             <ProgressBar
                 android:id="@+id/progressBar1"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_margin="5dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
                 android:max="100"
                 android:maxHeight="30dp"
                 android:progressDrawable="@drawable/custom_progressbar"
                 android:indeterminate="false" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="#FADDDA" />
-            <TextView
-                android:id="@+id/textViewResult2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical"
-                android:layout_margin="5dp"
-                android:text="@string/message_risk1"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
-                android:padding="2dp" />
-
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_margin="5dp"
-                android:max="100"
-                android:maxHeight="30dp"
-                android:progressDrawable="@drawable/custom_progressbar"
-                android:indeterminate="false" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="#FADDDA" />
-            <TextView
-                android:id="@+id/textViewResult3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical"
-                android:layout_margin="5dp"
-                android:text="@string/message_risk2"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
-                android:padding="2dp" />
-
-            <ProgressBar
-                android:id="@+id/progressBar3"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_margin="5dp"
-                android:max="100"
-                android:maxHeight="30dp"
-                android:progressDrawable="@drawable/custom_progressbar"
-                android:indeterminate="false" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="#FADDDA"
-                android:layout_marginBottom="5dp" />
 
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="75dp"
                 android:background="@color/colorPrimary"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/message_risk3"
+                    android:text="@string/message_risk4"
                     android:id="@+id/textView14"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/fontSize"
+                    android:textSize="@dimen/fontSize720"
 
                     android:textStyle="bold"
                     android:layout_centerVertical="true"
@@ -170,34 +97,34 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_toStartOf="@+id/container"
-                    android:layout_toLeftOf="@+id/container" />
+                    android:layout_toLeftOf="@+id/container"
+                    android:layout_toStartOf="@+id/container" />
 
                 <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:background="@drawable/shape"
                     android:id="@+id/container"
                     android:elevation="5dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_margin="5dp"
-                    android:gravity="center_vertical|center_horizontal">
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_marginRight="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="400"
-                        android:id="@+id/textViewResultYears"
+                        android:text="400%"
+                        android:id="@+id/textViewResult1"
                         android:textStyle="bold"
                         android:textColor="#050505"
-                        android:textSize="18dp" />
+                        android:textSize="20dp" />
                 </LinearLayout>
 
             </RelativeLayout>
+
 
             <EditText
                 android:layout_width="match_parent"
@@ -205,7 +132,7 @@
                 android:inputType="textMultiLine"
                 android:hint="@string/observations"
                 android:ems="10"
-                android:textSize="@dimen/fontSize"
+                android:textSize="@dimen/fontSize720"
                 android:id="@+id/editTextObservation"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
@@ -232,8 +159,7 @@
                     android:layout_gravity="left"
                     android:layout_margin="10dp"
                     android:text="@string/references"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="14dip"
+                    android:textSize="@dimen/fontSize720"
                     android:textColor="@color/background_material_dark"/>
 
             <TextView

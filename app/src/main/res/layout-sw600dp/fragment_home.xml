@@ -18,35 +18,35 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="223dp"
+                android:layout_height="230dp"
                 android:id="@+id/btnItem_0"
                 android:src="@drawable/item1"
                 android:layout_gravity="center_vertical" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="223dp"
+                android:layout_height="230dp"
                 android:id="@+id/btnItem_1"
                 android:src="@drawable/item2"
                 android:layout_gravity="center_vertical" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="223dp"
+                android:layout_height="230dp"
                 android:id="@+id/btnItem_2"
                 android:src="@drawable/item3"
                 android:layout_gravity="center_vertical" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="223dp"
+                android:layout_height="230dp"
                 android:id="@+id/btnItem_3"
                 android:src="@drawable/item4"
                 android:layout_gravity="center_vertical" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="223dp"
+                android:layout_height="230dp"
                 android:id="@+id/btnItem_4"
                 android:src="@drawable/item5"
                 android:layout_gravity="center_vertical" />
