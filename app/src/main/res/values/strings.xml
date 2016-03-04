@@ -34,7 +34,7 @@
     <string name="HDL_cholesterol">Colesterol HDL:</string>
     <string name="total_cholesterol">Colesterol total:</string>
     <string name="btnCalculate">Calcular</string>
-    <string name="waistCircumference">Circunferencia de cintura:</string>
+    <string name="waistCircumference">Circunferencia de cintura en cm:</string>
     <string name="triglicéridos">Nivel de triglicéridos (mg/dL):</string>
     <string name="Glucose">Glucosa en ayunas (mg/dL):</string>
     <string name="metabolicSyndrome">Síndrome metabólico:</string>
@@ -120,6 +120,7 @@
     <string name="messages3">Se presenta un inconveniente con la operación  </string>//Try catch
     <string name="messages4">Se presenta un inconveniente al compartir  </string>//error send
     <string name="messages5">Cargando  PDF....  </string>//error send
+
 
     //References
     <string name="ref1"></string>

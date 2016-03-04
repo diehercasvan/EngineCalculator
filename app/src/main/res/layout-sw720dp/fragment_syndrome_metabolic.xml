@@ -125,14 +125,14 @@
                         android:layout_alignTop="@+id/ImgFat"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:layout_toLeftOf="@+id/textWaist"
+                        android:layout_toLeftOf="@+id/EdiWaist"
                         android:layout_toRightOf="@+id/ImgFat"
                         android:gravity="center_vertical"
                         android:text="@string/waistCircumference"
                         android:textSize="@dimen/fontSize720" />
 
                     <TextView
-                        android:id="@+id/textWaist"
+                        android:id="@+id/EdiWaist"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@+id/textView10"
