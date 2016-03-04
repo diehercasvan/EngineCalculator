@@ -41,4 +41,18 @@
 
     </style>
 
+
+    <style name="btn_600">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">17dip</item>
+    </style>
+
+    <style name="btn_720">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">22dip</item>
+        <item name="android:padding">5dip</item>
+    </style>
+
 </resources>

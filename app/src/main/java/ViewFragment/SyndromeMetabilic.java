@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TableRow;
@@ -39,13 +40,13 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
     private Button btnCalculator;
     private Switch switchHypertension;
     private int selectedId;
-    private TableRow[] tableRows;
     private ImageView imageLogo;
     private int iSelectionRadio;
     private DTO_Data objDTo;
     private static int iValidateButton;
     private MetabolicSyndromeCalculation metabolicSyndromeCalculation;
     private SvgCreate svgCreate;
+    private RelativeLayout [] relativeLayouts;
 
 
     public SyndromeMetabilic() {
@@ -59,11 +60,11 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
         this.btnFab = null;
         this.btnCalculator = null;
         this.switchHypertension = null;
-        this.tableRows = new TableRow[6];
         this.selectedId = 0;
         this.imageLogo = null;
         this.metabolicSyndromeCalculation = null;
         this.svgCreate=null;
+        this.relativeLayouts=new RelativeLayout[2];
     }
 
     @Nullable
@@ -78,6 +79,9 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
     }
 
     public void loadView() {
+        relativeLayouts[0]=(RelativeLayout)view.findViewById(R.id.contenButton);
+        relativeLayouts[1]=(RelativeLayout)view.findViewById(R.id.contenButtonStart);
+
         imageLogo= (ImageView) view.findViewById(R.id.ImgLogo);
         svgCreate=new SvgCreate(imageLogo, General.iIDLogo);
         svgCreate.builderSVG();
@@ -124,12 +128,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
             switchHypertension.setOnCheckedChangeListener(this);
 
         }
-        tableRows[0] = (TableRow) view.findViewById(R.id.Row0);
-        tableRows[1] = (TableRow) view.findViewById(R.id.Row1);
-        tableRows[2] = (TableRow) view.findViewById(R.id.Row2);
-        tableRows[3] = (TableRow) view.findViewById(R.id.Row3);
-        tableRows[4] = (TableRow) view.findViewById(R.id.Row4);
-        tableRows[5] = (TableRow) view.findViewById(R.id.Row5);
+
 
 
     }
@@ -145,7 +144,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
 
                 if (selectedId == R.id.RadioMale) {
 
-                    if (iWaist >= 90) {
+                    if (iWaist >= 95) {
 
                         viewButton(0);
                     } else {
@@ -155,7 +154,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
 
                 } else {
 
-                    if (iWaist >= 80) {
+                    if (iWaist >= 85) {
                         viewButton(0);
 
                     } else {
@@ -172,33 +171,20 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
 
         if (iType == 0) {
 
-            tableRows[0].setVisibility(View.VISIBLE);
-            tableRows[1].setVisibility(View.VISIBLE);
-            tableRows[2].setVisibility(View.VISIBLE);
-            tableRows[3].setVisibility(View.VISIBLE);
-            tableRows[4].setVisibility(View.VISIBLE);
-            tableRows[5].setVisibility(View.VISIBLE);
+            relativeLayouts[1].setVisibility(View.VISIBLE);
             iValidateButton = 2;
 
         } else if (iType == 1) {
 
-            tableRows[4].setVisibility(View.VISIBLE);
-            tableRows[5].setVisibility(View.VISIBLE);
+            relativeLayouts[0].setVisibility(View.VISIBLE);
             iValidateButton = 2;
         } else if (iType == 2) {
-            tableRows[4].setVisibility(View.GONE);
-            tableRows[5].setVisibility(View.GONE);
+            relativeLayouts[0].setVisibility(View.GONE);
             iValidateButton = 3;
-
 
         } else {
 
-            tableRows[0].setVisibility(View.GONE);
-            tableRows[1].setVisibility(View.GONE);
-            tableRows[2].setVisibility(View.GONE);
-            tableRows[3].setVisibility(View.GONE);
-            tableRows[4].setVisibility(View.GONE);
-            tableRows[5].setVisibility(View.GONE);
+            relativeLayouts[1].setVisibility(View.GONE);
 
             iValidateButton = 1;
         }
@@ -227,7 +213,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
     }
 
     public void clearView() {
-        if (tableRows[5].getVisibility() == View.VISIBLE) {
+        if (relativeLayouts[1].getVisibility() == View.VISIBLE) {
             editTexts[0].setText("");
             editTexts[1].setText("");
             editTexts[2].setText("");
@@ -238,15 +224,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
             seekBarWaist.setProgress(iWaist);
             switchHypertension.setChecked(false);
         }
-        if (tableRows[5].getVisibility() == View.VISIBLE) {
-            editTexts[0].setText("");
-            editTexts[1].setText("");
-            editTexts[2].setText("");
-            textWaist.setText("0 cm");
-            iWaist = 0;
-            seekBarWaist.setProgress(iWaist);
-            switchHypertension.setChecked(false);
-        } else {
+        else {
             iWaist = 0;
             textWaist.setText("0 cm");
             seekBarWaist.setProgress(0);

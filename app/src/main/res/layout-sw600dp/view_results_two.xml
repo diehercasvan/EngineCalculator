@@ -16,17 +16,18 @@
 
         <ImageView
             android:id="@+id/Btn_Previous"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="left"
+
             android:layout_margin="5dp"
             android:src="@mipmap/ic_previous"
             android:padding="3dp" />
 
         <ImageView
             android:id="@+id/Btn_Share"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="right"
             android:src="@mipmap/ic_share"
             android:layout_alignParentEnd="true"
@@ -60,7 +61,7 @@
                 android:text="@string/title_item1"
                 android:id="@+id/textView11"
                 android:layout_marginBottom="10dp"
-                android:textSize="@dimen/fontSizeTitle" />
+                android:textSize="@dimen/fontSize600" />
 
             <TextView
                 android:id="@+id/textViewResult1"
@@ -70,7 +71,7 @@
                 android:layout_margin="5dp"
                 android:text="@string/message_risk"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
+                android:textSize="@dimen/fontSize600"
                 android:padding="2dp" />
 
             <ProgressBar
@@ -97,7 +98,7 @@
                 android:layout_margin="5dp"
                 android:text="@string/message_risk1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
+                android:textSize="@dimen/fontSize600"
                 android:padding="2dp" />
 
             <ProgressBar
@@ -124,7 +125,7 @@
                 android:layout_margin="5dp"
                 android:text="@string/message_risk2"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/fontSize"
+                android:textSize="@dimen/fontSize600"
                 android:padding="2dp" />
 
             <ProgressBar
@@ -161,7 +162,7 @@
                     android:text="@string/message_risk3"
                     android:id="@+id/textView14"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/fontSize"
+                    android:textSize="@dimen/fontSize600"
 
                     android:textStyle="bold"
                     android:layout_centerVertical="true"
@@ -205,7 +206,7 @@
                 android:inputType="textMultiLine"
                 android:hint="@string/observations"
                 android:ems="10"
-                android:textSize="@dimen/fontSize"
+                android:textSize="@dimen/fontSize600"
                 android:id="@+id/editTextObservation"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
@@ -233,7 +234,7 @@
                     android:layout_margin="10dp"
                     android:text="@string/references"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="14dip"
+                    android:textSize="@dimen/fontSize600"
                     android:textColor="@color/background_material_dark"/>
 
             <TextView

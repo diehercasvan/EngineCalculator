@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/Btn_Previous"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="left"
 
             android:layout_margin="5dp"
@@ -26,8 +26,8 @@
 
         <ImageView
             android:id="@+id/Btn_Share"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="right"
             android:src="@mipmap/ic_share"
             android:layout_alignParentEnd="true"
@@ -57,11 +57,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/title_item3"
                 android:id="@+id/textViewTitle"
                 android:layout_marginBottom="10dp"
-                android:textSize="@dimen/fontSizeTitle" />
+                android:textSize="@dimen/fontSize720" />
 
             <RelativeLayout
                 android:orientation="horizontal"
@@ -75,11 +74,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="@string/message_risk5"
                     android:id="@+id/textAnswer"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/fontSize"
+                    android:textSize="@dimen/fontSize720"
 
                     android:textStyle="bold"
                     android:layout_centerVertical="true"
@@ -107,7 +105,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="SÍ"
                         android:id="@+id/textViewResult1"
                         android:textStyle="bold"
@@ -123,7 +120,7 @@
                 android:inputType="textMultiLine"
                 android:hint="@string/observations"
                 android:ems="10"
-                android:textSize="@dimen/fontSize"
+                android:textSize="@dimen/fontSize720"
                 android:id="@+id/editTextObservation"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
@@ -150,8 +147,7 @@
                 android:layout_gravity="left"
                 android:layout_margin="10dp"
                 android:text="@string/references"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="14dip"
+                android:textSize="@dimen/fontSize720"
                 android:textColor="@color/background_material_dark"/>
 
             <TextView
@@ -164,7 +160,6 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/ref1"
-                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textSize="@dimen/fontSizeMin" />
         </LinearLayout>
     </ScrollView>
