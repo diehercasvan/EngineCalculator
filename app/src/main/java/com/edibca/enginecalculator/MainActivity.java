@@ -3,6 +3,7 @@ package com.edibca.enginecalculator;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
@@ -17,7 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.Toast;
 
 
 import Class.*;
@@ -61,9 +62,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         if (bValidaLoad) {
-            sTitleApplication = getResources().getString(R.string.app_name);
-            menuListener(5);
-            selectionTitle(5);
+           // sTitleApplication = getResources().getString(R.string.app_name);
+            Bundle bundle=getIntent().getExtras();
+            int iDateIntent=bundle.getInt("selectMenu");
+            menuListener(iDateIntent);
+            selectionTitle(iDateIntent);
             bValidaLoad = false;
 
         } else {
@@ -75,44 +78,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    public void reloadPreviousPage() {
-        int iSelectionFragment = 0;
-
-        if (getResources().getString(R.string.item1).substring(1, getResources().getString(R.string.item1).length()).trim().equals(sTitleApplication)) {
-
-            iSelectionFragment = 0;
-        } else if (getResources().getString(R.string.item2).substring(1, getResources().getString(R.string.item2).length()).trim().equals(sTitleApplication)) {
-
-            iSelectionFragment = 1;
-        } else if (getResources().getString(R.string.item3).substring(1, getResources().getString(R.string.item3).length()).trim().equals(sTitleApplication)) {
-            iSelectionFragment = 2;
-
-        } else if (getResources().getString(R.string.item4).substring(1, getResources().getString(R.string.item4).length()).trim().equals(sTitleApplication)) {
-            iSelectionFragment = 3;
-
-        } else if (getResources().getString(R.string.item5).substring(1, getResources().getString(R.string.item5).length()).trim().equals(sTitleApplication)) {
-            iSelectionFragment = 4;
-
-        } else if (getResources().getString(R.string.item6).substring(1, getResources().getString(R.string.item6).length()).trim().equals(sTitleApplication)) {
-
-            iSelectionFragment = 5;
-        }
-
-
-        menuListener(iSelectionFragment);
-        selectionTitle(iSelectionFragment);
-
-    }
-
-
-    @Override
+   @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
 
             if (navigationView.getVisibility() != View.VISIBLE) {
 
-                //reloadPreviousPage();
-                bValidaLoad = true;
+                Intent intent=new Intent(this,MainMenu.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.left_in, R.anim.right_out);
+                finish();
+                bValidaLoad=true;
             }
 
         }
@@ -150,19 +126,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-
         super.onSaveInstanceState(outState);
     }
 
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+       /* DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }
+        }*/
     }
 
     @Override
@@ -211,8 +186,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.item6:
                 iSelection = 6;
                 break;
-
-
         }
         menuListener(iSelection);
         selectionTitle(iSelection);

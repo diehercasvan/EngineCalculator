@@ -144,6 +144,7 @@
                         android:hint="0"
                         android:textSize="@dimen/fontSize"
                         android:maxLength="3"
+                        android:visibility="gone"
                         android:inputType="number"
                         />
 
@@ -154,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ImgFat"
                         android:layout_gravity="center_vertical"
-                        android:layout_margin="5dp"
+                        android:layout_margin="10dp"
                         android:indeterminate="false"
                         android:max="300"
                         android:progress="0" />

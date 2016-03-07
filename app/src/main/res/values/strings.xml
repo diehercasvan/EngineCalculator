@@ -52,7 +52,7 @@
     <string name="references">Referencias:</string>
     <string name="observations">Observaciones:</string>
 
-     //Message calculation
+    //Message calculation
     <string name="message_risk">Riesgo cardiovascular:</string>
     <string name="message_risk1">Riesgo normal según edad y sexo:</string>
     <string name="message_risk2">Riesgo óptimo según edad y sexo:</string>
@@ -116,7 +116,8 @@
     <string name="title_activity_main_splash_screen">MainSplashScreen</string>
     //User messages
     <string name="messages1">Todos los campos son necesarios </string>//incomplete data
-    <string name="messages2">Por favor, verifique los tipos de datos ingresados  </string>//type data
+    <string name="messages2">Por favor, verifique los tipos de datos ingresados  </string>//type
+    data
     <string name="messages3">Se presenta un inconveniente con la operación  </string>//Try catch
     <string name="messages4">Se presenta un inconveniente al compartir  </string>//error send
     <string name="messages5">Cargando  PDF....  </string>//error send

@@ -37,7 +37,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
     private View view;
     private RadioGroup GroupSex;
     private SeekBar seekBarWaist;
-    private int iWaist;
+    private int iWaist = 0;
     private FloatingActionButton btnFab;
     private EditText[] editTexts;
     private Button btnCalculator;
@@ -57,7 +57,6 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
         this.GroupSex = null;
         this.btnCalculator = null;
         this.seekBarWaist = null;
-        this.iWaist = 0;
         this.editTexts = new EditText[6];
         this.btnFab = null;
         this.btnCalculator = null;
@@ -67,39 +66,25 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
         this.metabolicSyndromeCalculation = null;
         this.svgCreate = null;
         this.relativeLayouts = new RelativeLayout[2];
-        this.view=null;
+        this.view = null;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         view = inflater.inflate(R.layout.fragment_syndrome_metabolic, container, false);
-
         loadView();
-
-
-
+        clearView();
         return view;
     }
 
     public void loadView() {
         relativeLayouts[0] = (RelativeLayout) view.findViewById(R.id.contenButton);
         relativeLayouts[1] = (RelativeLayout) view.findViewById(R.id.contenButtonStart);
-
-        relativeLayouts[1].setVisibility(View.GONE);
-
         imageLogo = (ImageView) view.findViewById(R.id.ImgLogo);
         svgCreate = new SvgCreate(imageLogo, General.iIDLogo);
         svgCreate.builderSVG();
-
         GroupSex = (RadioGroup) view.findViewById(R.id.GroupSex);
         GroupSex.setOnCheckedChangeListener(this);
         editTexts[0] = (EditText) view.findViewById(R.id.EdiTrigliceridos);
@@ -115,6 +100,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 iWaist = progress;
+
             }
 
             @Override
@@ -124,8 +110,15 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                if(iWaist>0){
+                    editTexts[5].setVisibility(View.VISIBLE);
+                }
+                else{
+                    editTexts[5].setVisibility(View.GONE);
+                }
                 editTexts[5].setText(String.valueOf(iWaist));
                 validateButtons(0);
+
 
 
             }
@@ -222,28 +215,38 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
                 clearView();
                 break;
             case R.id.EdiWaist:
-                String dataText=editTexts[5].getText().toString();
-                if(dataText.length()!=0){
-                    if(dataText.substring(0,1).equals("0")){
-                        dataText=dataText.substring(1,dataText.length());
-                        editTexts[5].setText(dataText);
-                    }
-                    int ediProgress = Integer.parseInt(dataText);
-                    if (ediProgress <= 300) {
-                        seekBarWaist.setProgress(Integer.parseInt(dataText));
-                        iWaist = ediProgress;
-                        validateButtons(0);
-                    }else{
-                        editTexts[5].setText("300");
-                        iWaist = 300;
-                        validateButtons(0);
-                    }
+                String dataText = editTexts[5].getText().toString();
+                try {
+                    if (iWaist > 0) {
+                        if (dataText.substring(0, 1).equals("0")) {
+                            dataText = dataText.substring(1, dataText.length());
+                            editTexts[5].setText(dataText);
+                        }
+                        int ediProgress = Integer.parseInt(dataText);
+                        if (ediProgress <= 300) {
+                            seekBarWaist.setProgress(Integer.parseInt(dataText));
+                            iWaist = ediProgress;
+                            validateButtons(0);
+                        } else {
+                            editTexts[5].setText("300");
+                            iWaist = 300;
+                            validateButtons(0);
+                            seekBarWaist.setProgress(iWaist);
+                        }
 
+                    }
+                    else{
+                        editTexts[5].setVisibility(View.GONE);
+                    }
+                } catch (Exception e) {
+                    Log.e("Error", e.getMessage());
+                    clearView();
                 }
 
 
                 break;
         }
+
     }
 
     @Override
@@ -252,6 +255,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
     }
 
     public void clearView() {
+
         if (relativeLayouts[1].getVisibility() == View.VISIBLE) {
             editTexts[0].setText("");
             editTexts[1].setText("");
@@ -262,14 +266,16 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
             iWaist = 0;
             seekBarWaist.setProgress(iWaist);
             switchHypertension.setChecked(false);
+            editTexts[5].setVisibility(View.GONE);
         } else {
             iWaist = 0;
             editTexts[5].setText("0");
             seekBarWaist.setProgress(0);
             switchHypertension.setChecked(false);
-
+            editTexts[5].setVisibility(View.GONE);
         }
         viewButton(3);
+
     }
 
 
