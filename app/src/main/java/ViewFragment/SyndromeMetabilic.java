@@ -118,9 +118,6 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
                 }
                 editTexts[5].setText(String.valueOf(iWaist));
                 validateButtons(0);
-
-
-
             }
         });
 

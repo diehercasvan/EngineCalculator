@@ -63,6 +63,15 @@
                 android:layout_marginBottom="10dp"
                 android:textSize="@dimen/fontSizeTitle" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/textMetabolic"
+                android:id="@+id/textInfo"
+                android:textSize="@dimen/fontSizeMin"
+                android:textColor="@color/blue" />
+
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -151,7 +160,7 @@
                 android:layout_margin="10dp"
                 android:text="@string/references"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="14dip"
+                android:textSize="14sp"
                 android:textColor="@color/background_material_dark"/>
 
             <TextView
@@ -163,7 +172,33 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/ref1"
+                android:text="@string/ref3"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/fontSizeMin" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/ref6"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/fontSizeMin" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/ref9"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textSize="@dimen/fontSizeMin" />
         </LinearLayout>
