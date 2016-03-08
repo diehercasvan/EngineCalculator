@@ -1,6 +1,8 @@
 package ViewFragment;
 import android.app.Activity;
 import android.app.Fragment;
+
+
 import Class.*;
 
 
@@ -18,6 +20,7 @@ public class ContainerFragment {
     private SyndromeMetabilic syndromeMetabilic;
     private BodyMass bodyMass;
     private CardiacRisk cardiacRisk;
+
 
 
     public ContainerFragment(int iSelection){

@@ -6,6 +6,7 @@ package ViewFragment;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -15,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
 import com.edibca.enginecalculator.R;
+
 import DTO.DTO_Data;
 import Class.*;
 
@@ -42,9 +45,9 @@ public class BodyMass extends Fragment implements View.OnClickListener {
         this.iWeight = 0;
         this.imageLogo = null;
         this.objDTo = null;
-        this.imc=null;
-        this.editTexts=new EditText[2];
-        this.svgCreate=null;
+        this.imc = null;
+        this.editTexts = new EditText[2];
+        this.svgCreate = null;
 
 
     }
@@ -62,17 +65,15 @@ public class BodyMass extends Fragment implements View.OnClickListener {
     public void loadView() {
 
 
-        imageLogo= (ImageView) view.findViewById(R.id.ImgLogo);
-        svgCreate=new SvgCreate(imageLogo, General.iIDLogo);
+        imageLogo = (ImageView) view.findViewById(R.id.ImgLogo);
+        svgCreate = new SvgCreate(imageLogo, General.iIDLogo);
         svgCreate.builderSVG();
         btnCalculator = (Button) view.findViewById(R.id.BtnCalculator);
         btnCalculator.setOnClickListener(this);
         btnFab = (FloatingActionButton) view.findViewById(R.id.BtnFabReload);
         btnFab.setOnClickListener(this);
-        editTexts[0]=(EditText)view.findViewById(R.id.editTextStature);
-        editTexts[1]=(EditText)view.findViewById(R.id.editTextWeight);
-
-
+        editTexts[0] = (EditText) view.findViewById(R.id.editTextStature);
+        editTexts[1] = (EditText) view.findViewById(R.id.editTextWeight);
 
 
     }
@@ -97,6 +98,7 @@ public class BodyMass extends Fragment implements View.OnClickListener {
         }
 
     }
+
     public boolean validateBoxText() {
 
         boolean bValidateBoxText = false;
@@ -108,6 +110,7 @@ public class BodyMass extends Fragment implements View.OnClickListener {
         return bValidateBoxText;
 
     }
+
     public void clearView() {
 
         editTexts[0].setText("");
@@ -117,16 +120,18 @@ public class BodyMass extends Fragment implements View.OnClickListener {
     public void loadDialog() {
 
         DialogResultsFour dialogPerson = new DialogResultsFour();
-        dialogPerson.sAnswer=imc.answer();
-        FragmentManager fragmentManager = getFragmentManager();
-        dialogPerson.show(fragmentManager, "Dialogo Personalizado");
+
+            dialogPerson.sAnswer = imc.answer();
+            FragmentManager fragmentManager = getFragmentManager();
+            dialogPerson.show(fragmentManager, "Dialogo Personalizado");
+
     }
 
     public void loadDataCalculator() {
 
 
-        objDTo = new DTO_Data(editTexts[0].getText().toString(),editTexts[1].getText().toString());
-        imc=new IMC(objDTo);
+        objDTo = new DTO_Data(editTexts[0].getText().toString(), editTexts[1].getText().toString());
+        imc = new IMC(objDTo);
         loadDialog();
 
     }

@@ -99,10 +99,11 @@ public class DialogResultsThree extends DialogFragment implements View.OnClickLi
 
 
         listSeadPDF.add(getResources().getString(R.string.title_item3));//Title
-        listSeadPDF.add(getResources().getString(R.string.message_risk5));
+        listSeadPDF.add(getResources().getString(R.string.message_risk5));//Message
         listSeadPDF.add(sAnswer);
         listSeadPDF.add(getResources().getString(R.string.observations));
         listSeadPDF.add(editTextObservation.getText().toString());
+        listSeadPDF.add(getResources().getString(R.string.textMetabolic));
 
 
 
@@ -124,6 +125,9 @@ public class DialogResultsThree extends DialogFragment implements View.OnClickLi
                 "    <div class=\"separator\"></div>\n" +
                 "  </div>\n" +
                 "  <div class=\"separator\"></div>\n" +
+                "<div>" +
+                "<p>" + listSeadPDF.get(5)+"</p>\n" +
+                "</div>\n"+
                 "  <div id=\"observations\">\n" +
                 "    <h4>"+listSeadPDF.get(3)+"</h4>\n" +
                 "    <p> "+listSeadPDF.get(4)+"</p>\n" +
