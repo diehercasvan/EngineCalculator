@@ -1,4 +1,4 @@
-package Class;
+package com.edibca.enginecalculator;
 
 /**
  * Created by DIEGO CASALLAS on 8/03/2016.
