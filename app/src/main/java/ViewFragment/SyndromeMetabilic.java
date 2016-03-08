@@ -362,7 +362,6 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
 
     public void loadDialog() {
         metabolicSyndromeCalculation = new MetabolicSyndromeCalculation(objDTo);
-
         DialogResultsThree dialogPerson = new DialogResultsThree();
         dialogPerson.bValidate = metabolicSyndromeCalculation.calculate();
         FragmentManager fragmentManager = getFragmentManager();
