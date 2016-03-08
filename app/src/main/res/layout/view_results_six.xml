@@ -46,10 +46,10 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:text="@string/title_item5"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/fontSizeTitle" />
+            android:textSize="@dimen/fontSizeTitle"
+            android:layout_margin="5dp" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -74,7 +74,8 @@
                         android:text="@string/textPreoperative"
                         android:id="@+id/textView9"
                         android:textColor="@color/blue"
-                        android:textSize="@dimen/fontSizeMin" />
+                        android:textSize="@dimen/fontSizeMin"
+                        android:layout_margin="5dp" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

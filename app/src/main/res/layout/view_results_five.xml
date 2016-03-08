@@ -40,7 +40,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/layout_tittle">
+        android:id="@+id/layout_tittle"
+        android:layout_margin="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,9 +49,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/title_item4"
             android:id="@+id/textViewTitle"
-            android:layout_marginBottom="10dp"
             android:textSize="@dimen/fontSizeTitle"
-            android:layout_margin="10dp" />
+            android:layout_margin="5dp" />
     </LinearLayout>
 
     <ScrollView

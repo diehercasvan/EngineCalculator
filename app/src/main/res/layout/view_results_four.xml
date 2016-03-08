@@ -47,9 +47,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/title_item3"
             android:id="@+id/textViewTitle"
-            android:layout_marginBottom="10dp"
             android:textSize="@dimen/fontSizeTitle"
-            android:layout_margin="10dp" />
+            android:layout_margin="5dp" />
     </RelativeLayout>
 
     <ScrollView
@@ -78,7 +77,8 @@
                 android:text="@string/textMetabolic"
                 android:id="@+id/textInfo"
                 android:textSize="@dimen/fontSizeMin"
-                android:textColor="@color/blue" />
+                android:textColor="@color/blue"
+                android:layout_margin="5dp" />
 
             <RelativeLayout
                 android:orientation="horizontal"
