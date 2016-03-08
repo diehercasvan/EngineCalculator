@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,8 +19,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
+
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import Class.*;
 import ViewFragment.ContainerFragment;
@@ -31,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static String sTitleApplication = "";
     private Fragment fragment;
     private NavigationView navigationView;
-
+    private Tracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +123,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             String sUri="file://" + getFilesDir() + "/"+sNameFile;
             LoadPdf  loadPdf= new LoadPdf(sUri,sNameFile);
             loadPdf.CopyReadAssets();
+        }
+        try
+        {
+            tracker=((TrackingAnalytics)getApplication()).getTracker(TrackingAnalytics.TrackerName.APP_TRACKER);
+        }
+        catch(Exception e){
+            Log.e("Error", e.getMessage());
         }
 
     }
@@ -222,6 +233,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sTitleApplication = sTitleApplication.substring(1, sTitleApplication.length()).trim();
         }
         getSupportActionBar().setTitle(sTitleApplication);
+        loadAnalytics(sTitleApplication);
     }
 
     @Override
@@ -229,6 +241,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         menuListener(iSelect);
         selectionTitle(iSelect);
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        //GoogleAnalytics.getInstance(this).reportActivityStop(this);
+        tracker.setScreenName(null);
+    }
+    public void loadAnalytics(String sScreen){
+        tracker.setScreenName(sScreen);
+        // Send a screen view.
+        tracker.send(new HitBuilders.AppViewBuilder().build());
+
     }
 }
 
