@@ -21,7 +21,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
@@ -66,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         if (bValidaLoad) {
-           // sTitleApplication = getResources().getString(R.string.app_name);
-            Bundle bundle=getIntent().getExtras();
-            int iDateIntent=bundle.getInt("selectMenu");
+            // sTitleApplication = getResources().getString(R.string.app_name);
+            Bundle bundle = getIntent().getExtras();
+            int iDateIntent = bundle.getInt("selectMenu");
             menuListener(iDateIntent);
             selectionTitle(iDateIntent);
             bValidaLoad = false;
@@ -82,17 +81,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-   @Override
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
 
             if (navigationView.getVisibility() != View.VISIBLE) {
 
-                Intent intent=new Intent(this,MainMenu.class);
+                Intent intent = new Intent(this, MainMenu.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
                 finish();
-                bValidaLoad=true;
+                bValidaLoad = true;
             }
 
         }
@@ -102,33 +101,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void menuListener(int iSelection) {
 
-        if(iSelection!=6){
-        containerFragment = new ContainerFragment(iSelection);
-        fragment = containerFragment.selectionFragment();
-        General.animation(1);
+        if (iSelection != 6) {
+            containerFragment = new ContainerFragment(iSelection);
+            fragment = containerFragment.selectionFragment();
+            General.animation(1);
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
-        fragmentTransaction.replace(R.id.FrameContainer, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+            fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
+            fragmentTransaction.replace(R.id.FrameContainer, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
 
 
-        General.deleteCache(this);
-        }
-        else{
-            String sNameFile="Fondo_Productos_Tecnofarma.pdf";
-            String sUri="file://" + getFilesDir() + "/"+sNameFile;
-            LoadPdf  loadPdf= new LoadPdf(sUri,sNameFile);
+            General.deleteCache(this);
+        } else {
+            String sNameFile = "Fondo_Productos_Tecnofarma.pdf";
+            String sUri = "file://" + getFilesDir() + "/" + sNameFile;
+            LoadPdf loadPdf = new LoadPdf(sUri, sNameFile);
             loadPdf.CopyReadAssets();
         }
-        try
-        {
-            tracker=((TrackingAnalytics)getApplication()).getTracker(TrackingAnalytics.TrackerName.APP_TRACKER);
-        }
-        catch(Exception e){
+        try {
+            tracker = ((TrackingAnalytics) getApplication()).getTracker(TrackingAnalytics.TrackerName.APP_TRACKER);
+        } catch (Exception e) {
             Log.e("Error", e.getMessage());
         }
 
@@ -229,8 +225,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         }
-        if(selection!=6){
-        sTitleApplication = sTitleApplication.substring(1, sTitleApplication.length()).trim();
+        if (selection != 6) {
+            sTitleApplication = sTitleApplication.substring(1, sTitleApplication.length()).trim();
         }
         getSupportActionBar().setTitle(sTitleApplication);
         loadAnalytics(sTitleApplication);
@@ -242,13 +238,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menuListener(iSelect);
         selectionTitle(iSelect);
     }
+
     @Override
     public void onStop() {
         super.onStop();
         //GoogleAnalytics.getInstance(this).reportActivityStop(this);
-        tracker.setScreenName(null);
+        try {
+            //tracker.setScreenName(null);
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+        }
+
     }
-    public void loadAnalytics(String sScreen){
+
+    public void loadAnalytics(String sScreen) {
         tracker.setScreenName(sScreen);
         // Send a screen view.
         tracker.send(new HitBuilders.AppViewBuilder().build());
