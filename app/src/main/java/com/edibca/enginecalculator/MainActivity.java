@@ -243,12 +243,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onStop() {
         super.onStop();
         //GoogleAnalytics.getInstance(this).reportActivityStop(this);
+<<<<<<< HEAD
         try {
             //tracker.setScreenName(null);
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
         }
 
+=======
+        //tracker.setScreenName(null);
+>>>>>>> origin/Calculator_Tecnofarma
     }
 
     public void loadAnalytics(String sScreen) {
