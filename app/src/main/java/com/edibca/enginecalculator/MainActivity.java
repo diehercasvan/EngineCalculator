@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onStop() {
         super.onStop();
         //GoogleAnalytics.getInstance(this).reportActivityStop(this);
-        tracker.setScreenName(null);
+        //tracker.setScreenName(null);
     }
     public void loadAnalytics(String sScreen){
         tracker.setScreenName(sScreen);

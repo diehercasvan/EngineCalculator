@@ -16,18 +16,17 @@
 
         <ImageView
             android:id="@+id/Btn_Previous"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="left"
-
             android:layout_margin="5dp"
             android:src="@mipmap/ic_previous"
             android:padding="3dp" />
 
         <ImageView
             android:id="@+id/Btn_Share"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="right"
             android:src="@mipmap/ic_share"
             android:layout_alignParentEnd="true"
@@ -56,13 +55,13 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/layout_tittle"
-        android:layout_above="@+id/scrollView3">
+        android:layout_above="@+id/layout_referencias">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,7 +74,7 @@
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="200dp"
                 android:background="@color/colorPrimary"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -158,7 +157,7 @@
     <ScrollView
         android:id="@+id/scrollView8"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="120dp"
         android:layout_alignParentBottom="true">
 
 
@@ -178,9 +177,23 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
                 android:gravity="left"
+                android:text="@string/ref4"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/fontSize600" />
+
+            <TextView
+                android:id="@+id/textViewReference1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:gravity="left"
                 android:text="@string/ref5"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="@dimen/fontSize720" />
+                android:textSize="@dimen/fontSize600" />
         </LinearLayout>
 
 
