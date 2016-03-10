@@ -26,7 +26,7 @@ public class MetabolicSyndromeCalculation {
         this.bValidate = false;
         this.iSex = (dto_data.getsSex().equals(General.ACTIVITY.getResources().getString(R.string.male))) ? 1 : 0;
         this.iWaist = Integer.parseInt(dto_data.getsWaist());
-        if ((iSex == 1 && iWaist >= 90) || (iSex == 0 && iWaist >= 80)) {
+        if ((iSex == 1 && iWaist >= 95) || (iSex == 0 && iWaist >= 90)) {
             bValidate = true;
         }
         if (bValidate) {
@@ -35,8 +35,8 @@ public class MetabolicSyndromeCalculation {
 
             this.bTreatment = dto_data.isbHypertensionTreatment();
             if(!this.bTreatment){
-            this.iSystolic = Integer.parseInt(dto_data.getsSystolic());
-            this.iDiastolic = Integer.parseInt(dto_data.getsDiastolic());
+                this.iSystolic = Integer.parseInt(dto_data.getsSystolic());
+                this.iDiastolic = Integer.parseInt(dto_data.getsDiastolic());
             }
             this.dGlucose = Double.parseDouble(dto_data.getsGlucose());
             this.iNumer = 0;
@@ -55,7 +55,7 @@ public class MetabolicSyndromeCalculation {
                 //Male
 
                 if (iSex == 1) {
-                    if (iWaist >= 90) {
+                    if (iWaist >= 95) {
                         iNumer++;
                     }
                     if (bTriglycerides >= 150) {
@@ -80,7 +80,7 @@ public class MetabolicSyndromeCalculation {
                 }
                 //Famele
                 else {
-                    if (iWaist >= 80) {
+                    if (iWaist >= 90) {
                         iNumer++;
                     }
                     if (bTriglycerides >= 150) {

@@ -1,6 +1,8 @@
 package ViewFragment;
 import android.app.Activity;
 import android.app.Fragment;
+
+
 import Class.*;
 
 
@@ -18,7 +20,8 @@ public class ContainerFragment {
     private SyndromeMetabilic syndromeMetabilic;
     private BodyMass bodyMass;
     private CardiacRisk cardiacRisk;
-    private HomeFragment homeFragment;
+
+
 
     public ContainerFragment(int iSelection){
         this.iSelectionFragment=iSelection;
@@ -27,7 +30,6 @@ public class ContainerFragment {
         this.syndromeMetabilic=null;
         this.bodyMass=null;
         this.cardiacRisk=null;
-        this.homeFragment=null;
         activity= General.ACTIVITY;
 
     }
@@ -50,12 +52,8 @@ public class ContainerFragment {
             case 4:
                 fragment=cardiacRisk=new CardiacRisk();
                 break;
-            case 5:
-                fragment=homeFragment=new HomeFragment();
-                break;
+
         }
-
-
 
         return fragment;
 

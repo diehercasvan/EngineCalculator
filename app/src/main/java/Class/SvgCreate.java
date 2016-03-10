@@ -59,7 +59,7 @@ public class SvgCreate {
             imageView.setImageDrawable(svg.createPictureDrawable());
 
         } catch (Exception e) {
-            General.printToast(R.string.messages6);
+            General.printToast(R.string.messages4);
         }
 
     }

@@ -123,27 +123,31 @@
                         android:layout_alignTop="@+id/ImgFat"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:layout_toLeftOf="@+id/textWaist"
+                        android:layout_toLeftOf="@+id/EdiWaist"
                         android:layout_toRightOf="@+id/ImgFat"
                         android:gravity="center_vertical"
                         android:text="@string/waistCircumference"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="@dimen/fontSize" />
 
-                    <TextView
-                        android:id="@+id/textWaist"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/EdiWaist"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@+id/textView10"
                         android:layout_alignParentRight="true"
                         android:layout_alignTop="@+id/ImgFat"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:padding="2dp"
-                        android:text="0 cm"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="@dimen/fontSize" />
+                        android:hint="0"
+                        android:textSize="@dimen/fontSize"
+                        android:maxLength="3"
+                        android:visibility="gone"
+                        android:inputType="number"
+                        />
+
 
                     <SeekBar
                         android:id="@+id/seekBarWaist"
@@ -151,22 +155,21 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ImgFat"
                         android:layout_gravity="center_vertical"
-                        android:layout_margin="5dp"
+                        android:layout_margin="10dp"
                         android:indeterminate="false"
-                        android:max="200"
+                        android:max="300"
                         android:progress="0" />
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/contenButtonStart"
                         android:layout_below="@+id/seekBarWaist"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         >
                     <EditText
                         android:id="@+id/EdiTrigliceridos"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_below="@+id/seekBarWaist"
                         android:layout_margin="5dp"
                         android:hint="@string/triglicéridos"
                         android:inputType="number"

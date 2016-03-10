@@ -18,8 +18,7 @@
         android:layout_alignParentStart="true"
         android:layout_gravity="center_horizontal"
         android:elevation="2dp"
-        android:text="@string/btnCalculate"
-        />
+        android:text="@string/btnCalculate" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -68,7 +67,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_column="0"
-                        android:layout_margin="10dp"
+                        android:layout_margin="5dp"
                         android:contentDescription="image sex"
                         android:gravity="center"
                         android:src="@mipmap/ic_sex" />
@@ -92,8 +91,6 @@
                             android:layout_height="wrap_content"
                             android:checked="false"
                             android:text="@string/male"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
                             android:textSize="@dimen/fontSize720" />
 
                         <RadioButton
@@ -102,9 +99,9 @@
                             android:layout_height="wrap_content"
                             android:checked="false"
                             android:text="@string/female"
+                            android:textSize="@dimen/fontSize720"
                             android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:textSize="@dimen/fontSize720" />
+                            android:layout_marginRight="10dp" />
                     </RadioGroup>
 
                     <ImageView
@@ -113,7 +110,8 @@
                         android:layout_height="80dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/ImgSex"
-                        android:layout_margin="10dp"
+                        android:layout_column="0"
+                        android:layout_margin="5dp"
                         android:gravity="center"
                         android:src="@mipmap/ic_fat" />
 
@@ -125,26 +123,31 @@
                         android:layout_alignTop="@+id/ImgFat"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:layout_toLeftOf="@+id/textWaist"
+                        android:layout_toLeftOf="@+id/EdiWaist"
                         android:layout_toRightOf="@+id/ImgFat"
                         android:gravity="center_vertical"
                         android:text="@string/waistCircumference"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="@dimen/fontSize720" />
 
-                    <TextView
-                        android:id="@+id/textWaist"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/EdiWaist"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@+id/textView10"
                         android:layout_alignParentRight="true"
                         android:layout_alignTop="@+id/ImgFat"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:padding="2dp"
-                        android:text="0 cm"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="@dimen/fontSize720" />
+                        android:hint="0"
+                        android:textSize="@dimen/fontSize720"
+                        android:maxLength="3"
+                        android:visibility="gone"
+                        android:inputType="number"
+                        />
+
 
                     <SeekBar
                         android:id="@+id/seekBarWaist"
@@ -152,30 +155,26 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ImgFat"
                         android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
                         android:indeterminate="false"
-                        android:max="200"
-                        android:progress="0"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginRight="5dp" />
+                        android:max="300"
+                        android:progress="0" />
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/contenButtonStart"
                         android:layout_below="@+id/seekBarWaist"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         >
                     <EditText
                         android:id="@+id/EdiTrigliceridos"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_below="@+id/seekBarWaist"
                         android:layout_margin="5dp"
                         android:hint="@string/triglicéridos"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:textSize="@dimen/fontSize"
+                        android:textSize="@dimen/fontSize720"
                         android:visibility="visible" />
 
                     <EditText
@@ -187,12 +186,12 @@
                         android:hint="@string/HDL_cholesterol"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:textSize="@dimen/fontSize" />
+                        android:textSize="@dimen/fontSize720" />
 
                     <ImageView
                         android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/EdiHDL_cholesterol"
                         android:layout_column="0"
@@ -214,7 +213,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/hypertension"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/fontSize720" />
 
                     <Switch
                         android:id="@+id/switchHypertension"
@@ -237,7 +236,7 @@
                         android:hint="@string/Glucose"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:textSize="@dimen/fontSize" />
+                        android:textSize="@dimen/fontSize720" />
                         <RelativeLayout
                             android:layout_below="@+id/EdiGlucosaPressure"
                             android:id="@+id/contenButton"
@@ -256,7 +255,7 @@
                                 android:hint="@string/Systolic_pressure"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:textSize="@dimen/fontSize" />
+                                android:textSize="@dimen/fontSize720" />
 
                             <EditText
                                 android:id="@+id/EdiDiastolicPressure"
@@ -268,7 +267,7 @@
                                 android:hint="@string/Diastolic_pressure"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:textSize="@dimen/fontSize" />
+                                android:textSize="@dimen/fontSize720" />
 
                         </RelativeLayout>
                     </RelativeLayout>
@@ -285,7 +284,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="right"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="45dp"
             android:src="@mipmap/ic_reload"
             app:elevation="3dp" />
 

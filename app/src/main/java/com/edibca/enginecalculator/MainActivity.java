@@ -3,10 +3,12 @@ package com.edibca.enginecalculator;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,6 +21,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import Class.*;
 import ViewFragment.ContainerFragment;
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static String sTitleApplication = "";
     private Fragment fragment;
     private NavigationView navigationView;
-
+    private Tracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +63,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         if (bValidaLoad) {
-            sTitleApplication = getResources().getString(R.string.app_name);
-            menuListener(5);
-            selectionTitle(5);
+            // sTitleApplication = getResources().getString(R.string.app_name);
+            Bundle bundle = getIntent().getExtras();
+            int iDateIntent = bundle.getInt("selectMenu");
+            menuListener(iDateIntent);
+            selectionTitle(iDateIntent);
             bValidaLoad = false;
 
         } else {
@@ -74,43 +81,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    public void reloadPreviousPage() {
-        int iSelectionFragment = 0;
-
-        if (getResources().getString(R.string.item1).substring(1, getResources().getString(R.string.item1).length()).trim().equals(sTitleApplication)) {
-
-            iSelectionFragment = 0;
-        } else if (getResources().getString(R.string.item2).substring(1, getResources().getString(R.string.item2).length()).trim().equals(sTitleApplication)) {
-
-            iSelectionFragment = 1;
-        } else if (getResources().getString(R.string.item3).substring(1, getResources().getString(R.string.item3).length()).trim().equals(sTitleApplication)) {
-            iSelectionFragment = 2;
-
-        } else if (getResources().getString(R.string.item4).substring(1, getResources().getString(R.string.item4).length()).trim().equals(sTitleApplication)) {
-            iSelectionFragment = 3;
-
-        } else if (getResources().getString(R.string.item5).substring(1, getResources().getString(R.string.item5).length()).trim().equals(sTitleApplication)) {
-            iSelectionFragment = 4;
-
-        } else if (getResources().getString(R.string.item6).substring(1, getResources().getString(R.string.item6).length()).trim().equals(sTitleApplication)) {
-
-            iSelectionFragment = 5;
-        }
-
-
-        menuListener(iSelectionFragment);
-        selectionTitle(iSelectionFragment);
-
-    }
-
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
 
             if (navigationView.getVisibility() != View.VISIBLE) {
 
-                //reloadPreviousPage();
+                Intent intent = new Intent(this, MainMenu.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.left_in, R.anim.right_out);
+                finish();
                 bValidaLoad = true;
             }
 
@@ -121,27 +101,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void menuListener(int iSelection) {
 
-        if(iSelection!=6){
-        containerFragment = new ContainerFragment(iSelection);
-        fragment = containerFragment.selectionFragment();
-        General.animation(1);
+        if (iSelection != 6) {
+            containerFragment = new ContainerFragment(iSelection);
+            fragment = containerFragment.selectionFragment();
+            General.animation(1);
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
-        fragmentTransaction.replace(R.id.FrameContainer, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+            fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
+            fragmentTransaction.replace(R.id.FrameContainer, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
 
 
-        General.deleteCache(this);
-        }
-        else{
-            String sNameFile="Descripcion_calculadoras_cardiovascular.pdf";
-            String sUri="file://" + getFilesDir() + "/"+sNameFile;
-            LoadPdf  loadPdf= new LoadPdf(sUri,sNameFile);
+            General.deleteCache(this);
+        } else {
+            String sNameFile = "Fondo_Productos_Tecnofarma.pdf";
+            String sUri = "file://" + getFilesDir() + "/" + sNameFile;
+            LoadPdf loadPdf = new LoadPdf(sUri, sNameFile);
             loadPdf.CopyReadAssets();
+        }
+        try {
+            tracker = ((TrackingAnalytics) getApplication()).getTracker(TrackingAnalytics.TrackerName.APP_TRACKER);
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
         }
 
     }
@@ -149,19 +133,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-
         super.onSaveInstanceState(outState);
     }
 
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+       /* DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }
+        }*/
     }
 
     @Override
@@ -210,8 +193,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.item6:
                 iSelection = 6;
                 break;
-
-
         }
         menuListener(iSelection);
         selectionTitle(iSelection);
@@ -244,10 +225,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         }
-        if(selection!=6){
-        sTitleApplication = sTitleApplication.substring(1, sTitleApplication.length()).trim();
+        if (selection != 6) {
+            sTitleApplication = sTitleApplication.substring(1, sTitleApplication.length()).trim();
         }
         getSupportActionBar().setTitle(sTitleApplication);
+        loadAnalytics(sTitleApplication);
     }
 
     @Override
@@ -255,6 +237,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         menuListener(iSelect);
         selectionTitle(iSelect);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        //GoogleAnalytics.getInstance(this).reportActivityStop(this);
+
+        try {
+            //tracker.setScreenName(null);
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+        }
+
+
+        //tracker.setScreenName(null);
+
+    }
+
+    public void loadAnalytics(String sScreen) {
+        tracker.setScreenName(sScreen);
+        // Send a screen view.
+        tracker.send(new HitBuilders.AppViewBuilder().build());
+
     }
 }
 

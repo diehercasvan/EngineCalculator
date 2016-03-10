@@ -22,8 +22,6 @@ public class SplashScreen extends Activity  implements View.OnClickListener{
     private RelativeLayout relativeLayout;
     private boolean bValidate = true;
     private Dialog dialog;
-
-
     public SplashScreen() {
     }
 
@@ -82,7 +80,7 @@ public class SplashScreen extends Activity  implements View.OnClickListener{
 
     public void loadNewActivity(int iAnimation) {
         if (bValidate) {
-            Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+            Intent intent = new Intent(SplashScreen.this, MainMenu.class);
             startActivity(intent);
             finish();
             if (iAnimation == 0) {
