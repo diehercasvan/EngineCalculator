@@ -80,7 +80,7 @@ public class SplashScreen extends Activity  implements View.OnClickListener{
 
     public void loadNewActivity(int iAnimation) {
         if (bValidate) {
-            Intent intent = new Intent(SplashScreen.this, MainMenu.class);
+            Intent intent = new Intent(SplashScreen.this, MainLogin.class);
             startActivity(intent);
             finish();
             if (iAnimation == 0) {
