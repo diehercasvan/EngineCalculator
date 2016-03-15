@@ -110,10 +110,6 @@
     <string name="weightIcon">&#xe90c;</string>
 
 
-    <string name="title_activity_splash_screen">SplashScreen</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_activity_main_splash_screen">MainSplashScreen</string>
     //User messages
     <string name="messages1">Todos los campos son necesarios </string>//incomplete data
     <string name="messages2">Por favor, verifique los tipos de datos ingresados  </string>//type

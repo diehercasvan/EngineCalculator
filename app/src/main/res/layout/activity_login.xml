@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -37,17 +38,6 @@
             android:src="@mipmap/ic_launcher" />
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/password"
-        android:id="@+id/textView"
-        android:layout_below="@+id/header"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_margin="15dp" />
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -55,22 +45,25 @@
         android:ems="10"
         android:hint="@string/password"
         android:id="@+id/editTextPassword"
-        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="15dp" />
+        android:layout_below="@+id/header"
+        android:gravity="center"
+        android:textSize="@dimen/fontSize600"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        style="@style/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/deposit"
         android:id="@+id/btnLogin"
-        android:layout_above="@+id/footer"
-        android:textColor="#ffffff"
-        android:background="@color/colorPrimaryDark"
-        android:layout_centerHorizontal="true"
         android:padding="15dp"
-        android:elevation="5dp" />
+        android:elevation="5dp"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
