@@ -99,29 +99,23 @@ public class SplashScreen extends Activity  implements View.OnClickListener{
     }
 
     public void dialog() {
-
         dialog = new Dialog(this);
-
         dialog.setContentView(R.layout.custom);
         dialog.setTitle(getResources().getString(R.string.item6));
         dialog.setCancelable(false);
-        Button dialogOK = (Button) dialog.findViewById(R.id.btn_yes);
+        //Button dialogOK = (Button) dialog.findViewById(R.id.btn_yes);
         Button dialogCancel = (Button) dialog.findViewById(R.id.btn_no);
         // if button is clicked, close the custom dialog
-        dialogOK.setOnClickListener(new View.OnClickListener() {
+      /*  dialogOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 reloadActivity(1);
 
-
             }
-        });
+        });*/
         dialogCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 reloadActivity(2);
             }
         });
@@ -140,7 +134,7 @@ public class SplashScreen extends Activity  implements View.OnClickListener{
         if (iData==1) {
             finish();
             onDestroy();
-            startActivity(getIntent());
+            //startActivity(getIntent());
         } else  {
             finish();
             onDestroy();
