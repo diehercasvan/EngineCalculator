@@ -35,7 +35,8 @@
             android:textStyle="bold"
             android:textSize="12dip"
             android:layout_margin="10dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btn_no"

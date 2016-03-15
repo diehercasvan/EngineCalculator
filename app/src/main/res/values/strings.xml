@@ -139,4 +139,7 @@
     <string name="dialogError">Se presenta un inconveniente con el aplicativo</string>
     <string name="dialogRestart">Reiniciar </string>
     <string name="dialogTofinalize">Finalizar </string>
+    <string name="deposit">Ingresar</string>
+    <string name="password">Contraseña</string>
+    <string name="dialogErrorPassword">Contraseña incorrecta</string>
 </resources>
