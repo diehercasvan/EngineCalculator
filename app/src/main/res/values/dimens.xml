@@ -10,4 +10,6 @@
     <dimen name="fontSizeMin">12dip</dimen>
     <dimen name="fontSizeTitle">16dip</dimen>
     <dimen name="logos">35sp</dimen>
+    <dimen name="fontSize600">17dip</dimen>
+    <dimen name="fontSize720">24dip</dimen>
 </resources>

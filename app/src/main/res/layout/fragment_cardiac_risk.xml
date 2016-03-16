@@ -37,323 +37,289 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:elevation="5dp"
                 android:background="@drawable/background_logo"
-                android:gravity="center" >
+                android:elevation="5dp"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/ImgLogo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/ic_launcher"
-                    android:contentDescription="Logo" />
+                    android:contentDescription="Logo"
+                    android:src="@mipmap/ic_launcher" />
+
             </RelativeLayout>
 
+
             <ScrollView
-                android:id="@+id/scrollView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView6"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
-                <TableLayout
+                <RelativeLayout
+                    android:id="@+id/container"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:stretchColumns="1"
-                    android:gravity="center_horizontal">
-
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp">
+                    <Switch
+                        android:id="@+id/switch0"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:gravity="center|center_horizontal">
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp" 
+                        
+                        android:checked="false"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp" />
 
-                        <TextView
-                            android:id="@+id/textView30"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk0"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
-
-                        <Switch
-                            android:id="@+id/switch0"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
-                    </TableRow>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FADDDA"
-                        android:gravity="center" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/textView30"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center|center_horizontal">
+                        android:elegantTextHeight="true"
+                        android:text="@string/risk0"
+                        android:maxLines="2"
+                        
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch0"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch0"
+                        android:layout_alignBottom="@+id/switch0"
+                        android:layout_alignTop="@+id/switch0"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp" />
 
-                        <TextView
-                            android:id="@+id/textView28"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk1"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
-
-                        <Switch
-                            android:id="@+id/switch1"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
-                    </TableRow>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FADDDA"
-                        android:gravity="center" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    <Switch
+                        android:id="@+id/switch1"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center|center_horizontal">
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:checked="false"
+                        android:layout_below="@+id/switch0"
+                        android:layout_marginBottom="10dp" />
 
-                        <TextView
-                            android:id="@+id/textView26"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk2"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
-
-                        <Switch
-                            android:id="@+id/switch2"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
-                    </TableRow>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FADDDA"
-                        android:gravity="center" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center|center_horizontal">
+                        android:text="@string/risk1"
+                        android:maxLines="2"
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch1"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch1"
+                        android:layout_alignBottom="@+id/switch1"
+                        android:layout_alignTop="@+id/switch1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
 
-                        <TextView
-                            android:id="@+id/textView24"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk3"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
-
-                        <Switch
-                            android:id="@+id/switch3"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
-                    </TableRow>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FADDDA"
-                        android:gravity="center" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    <Switch
+                        android:id="@+id/switch2"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center|center_horizontal">
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:checked="false"
+                        android:layout_below="@+id/switch1"
+                        android:layout_marginBottom="10dp" />
 
-                        <TextView
-                            android:id="@+id/textView22"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk4"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
-
-                        <Switch
-                            android:id="@+id/switch4"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
-                    </TableRow>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FADDDA"
-                        android:gravity="center" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center|center_horizontal">
+                        android:text="@string/risk2"
+                        android:maxLines="2"
+                        
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch2"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch2"
+                        android:layout_alignBottom="@+id/switch2"
+                        android:layout_alignTop="@+id/switch2"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"/>
 
-                        <TextView
-                            android:id="@+id/textView20"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk5"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
-
-                        <Switch
-                            android:id="@+id/switch5"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
-                    </TableRow>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FADDDA"
-                        android:gravity="center" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    <Switch
+                        android:id="@+id/switch3"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center|center_horizontal">
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:checked="false"
+                        android:layout_below="@+id/switch2"
+                        android:layout_marginBottom="10dp" />
 
-                        <TextView
-                            android:id="@+id/textView18"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk6"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
-
-                        <Switch
-                            android:id="@+id/switch6"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
-                    </TableRow>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FADDDA"
-                        android:gravity="center" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center|center_horizontal">
+                        android:elegantTextHeight="true"
+                        android:text="@string/risk3"
+                        android:maxLines="2"
+                        
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch3"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch3"
+                        android:layout_alignBottom="@+id/switch3"
+                        android:layout_alignTop="@+id/switch3"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"/>
 
-                        <TextView
-                            android:id="@+id/textView16"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk7"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
-
-                        <Switch
-                            android:id="@+id/switch7"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
-                    </TableRow>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FADDDA"
-                        android:gravity="center" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
+                    <Switch
+                        android:id="@+id/switch4"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center|center_horizontal"
-                        android:layout_marginBottom="20dp">
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:checked="false"
+                        android:layout_below="@+id/switch3"
+                        android:layout_marginBottom="10dp" />
 
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="0"
-                            android:elegantTextHeight="true"
-                            android:text="@string/risk8"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textSize="12sp"
-                            android:layout_margin="5dp" />
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/risk4"
+                        android:maxLines="2"
+                        
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch4"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch4"
+                        android:layout_alignBottom="@+id/switch4"
+                        android:layout_alignTop="@+id/switch4"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"/>
 
-                        <Switch
-                            android:id="@+id/switch8"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_column="1"
-                            android:checked="false"
-                            android:layout_margin="5dp" />
+                    <Switch
+                        android:id="@+id/switch5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:checked="false"
+                        android:layout_below="@+id/switch4"
+                        android:layout_marginBottom="10dp" />
 
-                    </TableRow>
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/risk5"
+                        android:maxLines="2"
+                        
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch5"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch5"
+                        android:layout_alignBottom="@+id/switch5"
+                        android:layout_alignTop="@+id/switch5"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"/>
 
+                    <Switch
+                        android:id="@+id/switch6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:checked="false"
+                        android:layout_below="@+id/switch5"
+                        android:layout_marginBottom="10dp" />
 
-                </TableLayout>
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elegantTextHeight="true"
+                        android:text="@string/risk6"
+                        android:maxLines="2"
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch6"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch6"
+                        android:layout_alignBottom="@+id/switch6"
+                        android:layout_alignTop="@+id/switch6"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <Switch
+                        android:id="@+id/switch7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:checked="false"
+                        android:layout_below="@+id/switch6"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elegantTextHeight="true"
+                        android:text="@string/risk7"
+                        android:maxLines="2"
+                        
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch7"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch7"
+                        android:layout_alignBottom="@+id/switch7"
+                        android:layout_alignTop="@+id/switch7"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <Switch
+                        android:id="@+id/switch8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:checked="false"
+                        android:layout_below="@+id/switch7"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elegantTextHeight="true"
+                        android:text="@string/risk8"
+                        android:maxLines="2"
+                        
+                        android:textSize="11sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toStartOf="@+id/switch8"
+                        android:gravity="center_vertical"
+                        android:layout_toLeftOf="@+id/switch8"
+                        android:layout_alignBottom="@+id/switch8"
+                        android:layout_alignTop="@+id/switch8"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                </RelativeLayout>
             </ScrollView>
-
 
         </LinearLayout>
 
@@ -362,11 +328,10 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="right"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="45dp"
             android:src="@mipmap/ic_reload"
+            android:background="@color/colorPrimaryDark"
             app:elevation="3dp" />
 
     </FrameLayout>
 </RelativeLayout>
-

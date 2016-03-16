@@ -151,6 +151,7 @@ public class DialogResultsFour extends DialogFragment implements View.OnClickLis
     }
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         dialog = super.onCreateDialog(savedInstanceState);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 

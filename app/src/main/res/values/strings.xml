@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculadora Asofarma</string>
+    <string name="app_name">Engine Calculator</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -15,6 +15,7 @@
     <string name="item6"> • Calculadora Asofarma</string>
     <string name="item7"> • Menu </string>
     <string name="item8"> • Marcas patrocinantes </string>
+
 
     <string name="prueba">&#xf11b;</string>
     <string name="share">Compartir ...</string>
@@ -121,15 +122,23 @@
     <string name="messages5">Cargando  PDF....  </string>//error send
 
     //References
-    <string name="ref1"></string>
-    <string name="ref2"></string>
-    <string name="ref3"></string>
-    <string name="ref4"></string>
+    <string name="ref1">1. Framingham Heart Study. Cardiovascular Disease (10-year risk). [en línea] Disponible en: https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php Consultado: 22 06 2015</string>
+    <string name="ref2">1. Expert Panel on Detection, Evaluation, and Treatment of High Blood Cholesterol in Adults. Executive Summary of the Third Report of the National Cholesterol Education Program (NCEP) Expert Panel on Detection, Evaluation, and Treatment of High Blood Cholesterol in Adults (Adult Treatment Panel III). JAMA. 2001; 285(19):2486-2497. doi:10.1001/jama.285.19.2486.</string>
+    <string name="ref3">1. Joint Scientific Statement:<br />Harmonizing the Metabolic Syndrome: A Joint Interim Statement of the International Diabetes Federation Task Force on Epidemiology and Prevention; National Heart, Lung, and Blood Institute; American Heart Association; World Heart Federation; International Atherosclerosis Society; and International Association for the Study of Obesity K.G.M.M. Alberti, Robert H. Eckel, Scott M. Grundy, Paul Z. Zimmet, James I. Cleeman, Karen A. Donato, Jean-Charles Fruchart, W. Philip T. James, Catherine M. Loria, and Sidney C. Smith, Jr. Circulation. 2009; 120:1640-1645, published online before print October 5 2009, doi:10.1161/CIRCULATIONAHA.109.192644</string>
+    <string name="ref4">1. Pi-Sunyer F, et al. Clinical Guidelines on the Identification, Evaluation, and Treatment of Overweight and Obesity in Adults. [en línea] Disponible en: http://www.nhlbi.nih.gov/files/docs/guidelines/obesity_guidelines_archive.pdf</string>
+    <string name="ref5">2. AHA/ACC/TOS Prevention Guideline:2013 AHA/ACC/TOS Guideline for the Management of Overweight and Obesity in Adults: A Report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines and The Obesity Society Michael D. Jensen, Donna H. Ryan, Caroline M. Apovian, Jamy D. Ard, Anthony G. Comuzzie, Karen A. Donato, Frank B. Hu, Van S. Hubbard, John M. Jakicic, Robert F. Kushner, Catherine M. Loria, Barbara E. Millen, Cathy A. Nonas, F. Xavier Pi-Sunyer, June Stevens, Victor J. Stevens, Thomas A. Wadden, Bruce M. Wolfe, and Susan Z. Yanovski Circulation. 2013;01.cir.0000437739.71477.eepublished online before print November 12 2013, doi:10.1161/01.cir.0000437739.71477.ee</string>
+    <string name="ref6">2. Alberti K.G, Eckel R, Grundy S, Zimmet P, Cleeman J, et al. Harmonizing the Metabolic Syndrome A Joint Interim Statement of the International Diabetes Federation TaskForce on Epidemiology and Prevention; National Heart, Lung, and Blood Institute; American Heart Association; World Heart Federation;International Atherosclerosis Society; and International Association for the Study of Obesity. (Circulation. 2009;120:1640-1645.</string>
+    <string name="ref7">1.Halub M, Sidwell R. Cardiac Risk Stratification and Protection. Surg Clin N Am 95 (2015) 217–235.</string>
+    <string name="ref8">2.Kraus, J, et al. Consenso de evaluación del riesgo cardiovascular en cirugía no cardíaca. Rev Arg Cardiol. 2005;73(5):381-396.</string>
+    <string name="ref9">Referencia adicional para esta calculadora:<br />Aschner P, Buendía R, Brajkovich I, Gonzalez A, Figueredo R, Juarez x, et al. Determination of the cutoff point for waist circumference that establishes the presence of abdominal obesity in Latin American men and women. Diab Res Clin Pract 2011;93:243-247.</string>
+
+    <string name="textMetabolic">El Síndrome Metabólico incrementa 2 veces el riesgo de enfermedad cardiovascular durante los próximos 5 a 10 años y aumenta 5 veces el riesgo de diabetes mellitus tipo 2.</string>
+    <string name="textPreoperative">El puntaje de riesgo de Goldman establece la probabilidad de  complicaciones cardiacas (%) en pacientes llevados a cirugía no cardiaca, en relación a la presencia o no de factores de riesgo específicos. Clasifica a los pacientes en cuatro clases (I a IV). El incremento en la clase del paciente se relaciona con el incremento en la probabilidad de complicaciones (complicaciones cardíacas, complicaciones graves y muerte cardiaca). Clase I (riesgo bajo): puntaje de 0 a 5; clase II (riesgo moderado): puntaje 6-12; clase III (riesgo alto): puntaje 13-25; clase IV (riesgo muy alto): puntaje ≥26).</string>
 
     <string name="dialogError">Se presenta un inconveniente con el aplicativo</string>
     <string name="dialogRestart">Reiniciar </string>
     <string name="dialogTofinalize">Finalizar </string>
-
-
+    <string name="deposit">Ingresar</string>
+    <string name="password">Contraseña</string>
+    <string name="dialogErrorPassword">Contraseña incorrecta</string>
 </resources>
-

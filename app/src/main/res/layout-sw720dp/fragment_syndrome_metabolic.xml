@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:id="@+id/BtnCalculator"
+        style="@style/btn_720"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal"
+        android:elevation="2dp"
+        android:text="@string/btnCalculate" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/BtnCalculator"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|top"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/background_logo"
+                android:elevation="5dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ImgLogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="Logo"
+                    android:src="@mipmap/ic_launcher" />
+            </RelativeLayout>
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ImgSex"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_column="0"
+                        android:layout_margin="5dp"
+                        android:contentDescription="image sex"
+                        android:gravity="center"
+                        android:src="@mipmap/ic_sex" />
+
+                    <RadioGroup
+                        android:id="@+id/GroupSex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/ImgSex"
+                        android:layout_alignParentTop="true"
+                        android:layout_column="1"
+                        android:layout_gravity="left"
+                        android:layout_span="4"
+                        android:layout_toRightOf="@+id/ImgSex"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/RadioMale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="@string/male"
+                            android:textSize="@dimen/fontSize720" />
+
+                        <RadioButton
+                            android:id="@+id/RadioFamele"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="@string/female"
+                            android:textSize="@dimen/fontSize720"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp" />
+                    </RadioGroup>
+
+                    <ImageView
+                        android:id="@+id/ImgFat"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/ImgSex"
+                        android:layout_column="0"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:src="@mipmap/ic_fat" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/ImgFat"
+                        android:layout_alignTop="@+id/ImgFat"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/EdiWaist"
+                        android:layout_toRightOf="@+id/ImgFat"
+                        android:gravity="center_vertical"
+                        android:text="@string/waistCircumference"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="@dimen/fontSize720" />
+
+                    <EditText
+                        android:id="@+id/EdiWaist"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/textView10"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@+id/ImgFat"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:hint="0"
+                        android:textSize="@dimen/fontSize720"
+                        android:maxLength="3"
+                        android:visibility="gone"
+                        android:inputType="number"
+                        />
+
+
+                    <SeekBar
+                        android:id="@+id/seekBarWaist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ImgFat"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:indeterminate="false"
+                        android:max="300"
+                        android:progress="0" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/contenButtonStart"
+                        android:layout_below="@+id/seekBarWaist"
+                        android:visibility="visible"
+                        >
+                    <EditText
+                        android:id="@+id/EdiTrigliceridos"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:hint="@string/triglicéridos"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="@dimen/fontSize720"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:id="@+id/EdiHDL_cholesterol"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/EdiTrigliceridos"
+                        android:layout_margin="5dp"
+                        android:hint="@string/HDL_cholesterol"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="@dimen/fontSize720" />
+
+                    <ImageView
+                        android:id="@+id/textView2"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/EdiHDL_cholesterol"
+                        android:layout_column="0"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:src="@mipmap/ic_heartbeat" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/textView2"
+                        android:layout_alignTop="@+id/textView2"
+                        android:layout_column="1"
+                        android:layout_margin="5dp"
+                        android:layout_toLeftOf="@+id/switchHypertension"
+                        android:layout_toRightOf="@+id/textView2"
+                        android:elegantTextHeight="true"
+                        android:gravity="center_vertical"
+                        android:text="@string/hypertension"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="@dimen/fontSize720" />
+
+                    <Switch
+                        android:id="@+id/switchHypertension"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/textView5"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@+id/textView5"
+                        android:layout_column="3"
+                        android:checked="false" />
+
+                    <EditText
+                        android:id="@+id/EdiGlucosaPressure"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/textView2"
+                        android:layout_column="0"
+                        android:layout_span="4"
+                        android:hint="@string/Glucose"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="@dimen/fontSize720" />
+                        <RelativeLayout
+                            android:layout_below="@+id/EdiGlucosaPressure"
+                            android:id="@+id/contenButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            >
+
+                            <EditText
+                                android:id="@+id/EdiSystolicPressure"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_below="@+id/EdiGlucosaPressure"
+                                android:layout_column="0"
+                                android:layout_span="4"
+                                android:hint="@string/Systolic_pressure"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:textSize="@dimen/fontSize720" />
+
+                            <EditText
+                                android:id="@+id/EdiDiastolicPressure"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_below="@+id/EdiSystolicPressure"
+                                android:layout_column="0"
+                                android:layout_span="4"
+                                android:hint="@string/Diastolic_pressure"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:textSize="@dimen/fontSize720" />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/BtnFabReload"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="45dp"
+            android:src="@mipmap/ic_reload"
+            app:elevation="3dp" />
+
+    </FrameLayout>
+</RelativeLayout>
+
