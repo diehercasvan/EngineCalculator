@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             General.deleteCache(this);
         } else {
-            String sNameFile = "Fondo_Productos_Tecnofarma.pdf";
+            String sNameFile = "Fondo_Productos.pdf";
             String sUri = "file://" + getFilesDir() + "/" + sNameFile;
             LoadPdf loadPdf = new LoadPdf(sUri, sNameFile);
             loadPdf.CopyReadAssets();
