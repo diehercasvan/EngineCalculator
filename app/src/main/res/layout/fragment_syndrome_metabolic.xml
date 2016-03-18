@@ -249,7 +249,6 @@
                                 android:id="@+id/EdiSystolicPressure"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:layout_below="@+id/EdiGlucosaPressure"
                                 android:layout_column="0"
                                 android:layout_span="4"
                                 android:hint="@string/Systolic_pressure"
