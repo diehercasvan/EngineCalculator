@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-            fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
+            fragmentTransaction.setCustomAnimations(R.animator.fragment_slide_left_enter, R.animator.fragment_slide_right_exit);
             fragmentTransaction.replace(R.id.FrameContainer, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             General.deleteCache(this);
         } else {
-            String sNameFile = "Fondo_Productos_Tecnofarma.pdf";
+            String sNameFile = "Fondo_Productos.pdf";
             String sUri = "file://" + getFilesDir() + "/" + sNameFile;
             LoadPdf loadPdf = new LoadPdf(sUri, sNameFile);
             loadPdf.CopyReadAssets();
