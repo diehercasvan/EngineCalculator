@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 public class MainMenu extends Activity implements View.OnClickListener{
@@ -13,7 +14,7 @@ public class MainMenu extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        loadView();
+           loadView();
     }
     public void  loadView(){
         imageViews=new ImageView[5];
