@@ -19,10 +19,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+
+import java.io.File;
 
 import Class.*;
 import ViewFragment.ContainerFragment;
@@ -117,10 +120,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             General.deleteCache(this);
         } else {
-            String sNameFile = "Fondo_Productos.pdf";
+            /*String sNameFile = "Asofarma_Productos.pdf";
             String sUri = "file://" + getFilesDir() + "/" + sNameFile;
             LoadPdf loadPdf = new LoadPdf(sUri, sNameFile);
-            loadPdf.CopyReadAssets();
+            loadPdf.CopyReadAssets();*/
+            String sRoute=Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+General.FILE;
+            File file=new File(sRoute);
+            if(file.isDirectory()){
+
+                Toast.makeText(this,"Si",Toast.LENGTH_LONG).show();
+            }
+            else{
+
+                Toast.makeText(this,"No",Toast.LENGTH_LONG).show();
+                file.mkdir();
+                file=new File(sRoute+"/"+General.PASSWORD);
+                if(!file.exists()){
+
+                    Toast.makeText(this,"No file",Toast.LENGTH_LONG).show();
+                }
+
+            }
         }
         try {
             tracker = ((TrackingAnalytics) getApplication()).getTracker(TrackingAnalytics.TrackerName.APP_TRACKER);

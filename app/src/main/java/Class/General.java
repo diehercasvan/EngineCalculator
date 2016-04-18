@@ -27,6 +27,7 @@ public class General {
     public static String CONTENT_HTML;
     public static String CONTENT_CSS;
     public static final String PASSWORD="asofarma";
+    public static final String FILE="Asofarma";
 
     public General(Activity activity, Context context,String route) {
 
