@@ -101,6 +101,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 iWaist = progress;
 
+
             }
 
             @Override
@@ -118,7 +119,9 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
                 }
                 editTexts[5].setText(String.valueOf(iWaist));
                 validateButtons(0);
+
             }
+
         });
 
 
@@ -140,6 +143,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
 
     public void validateButtons(int data) {
         selectedId = GroupSex.getCheckedRadioButtonId();
+
         if (data == 0) {
             if (selectedId == -1) {
                 General.printToast(R.string.messages1);
@@ -198,6 +202,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
     @Override
     public void onClick(View v) {
         selectedId = GroupSex.getCheckedRadioButtonId();
+
         switch (v.getId()) {
 
             case R.id.BtnCalculator:
@@ -236,7 +241,7 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
                         editTexts[5].setVisibility(View.GONE);
                     }
                 } catch (Exception e) {
-                    Log.e("Error", e.getMessage());
+
                     clearView();
                 }
 
@@ -264,12 +269,18 @@ public class SyndromeMetabilic extends Fragment implements View.OnClickListener,
             seekBarWaist.setProgress(iWaist);
             switchHypertension.setChecked(false);
             editTexts[5].setVisibility(View.GONE);
+
+
         } else {
             iWaist = 0;
             editTexts[5].setText("0");
             seekBarWaist.setProgress(0);
             switchHypertension.setChecked(false);
             editTexts[5].setVisibility(View.GONE);
+            editTexts[3].setVisibility(View.GONE);
+            editTexts[4].setVisibility(View.GONE);
+
+
         }
         viewButton(3);
 

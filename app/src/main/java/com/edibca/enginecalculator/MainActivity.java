@@ -26,6 +26,7 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
+import java.io.FileOutputStream;
 
 import Class.*;
 import ViewFragment.ContainerFragment;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menuListener(iDateIntent);
             selectionTitle(iDateIntent);
             bValidaLoad = false;
+            General.createFile();
 
         } else {
             getSupportActionBar().setTitle(sTitleApplication);
@@ -124,23 +126,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             String sUri = "file://" + getFilesDir() + "/" + sNameFile;
             LoadPdf loadPdf = new LoadPdf(sUri, sNameFile);
             loadPdf.CopyReadAssets();*/
-            String sRoute=Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+General.FILE;
-            File file=new File(sRoute);
-            if(file.isDirectory()){
+            General.createFile();
+            General.readerPDF();
 
-                Toast.makeText(this,"Si",Toast.LENGTH_LONG).show();
-            }
-            else{
 
-                Toast.makeText(this,"No",Toast.LENGTH_LONG).show();
-                file.mkdir();
-                file=new File(sRoute+"/"+General.PASSWORD);
-                if(!file.exists()){
-
-                    Toast.makeText(this,"No file",Toast.LENGTH_LONG).show();
-                }
-
-            }
         }
         try {
             tracker = ((TrackingAnalytics) getApplication()).getTracker(TrackingAnalytics.TrackerName.APP_TRACKER);

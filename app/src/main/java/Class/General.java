@@ -2,14 +2,23 @@ package Class;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.net.Uri;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.edibca.enginecalculator.R;
+
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.regex.Pattern;
 
 /**
@@ -26,19 +35,20 @@ public class General {
     public static int iIDLogo;
     public static String CONTENT_HTML;
     public static String CONTENT_CSS;
-    public static final String PASSWORD="asofarma";
-    public static final String FILE="Asofarma";
+    public static final String PASSWORD = "asofarma";
+    public static final String FILE = PASSWORD;
+    public static final String NAME_FILE = "Asofarma_Productos.pdf";
 
-    public General(Activity activity, Context context,String route) {
+    public General(Activity activity, Context context, String route) {
 
         this.ACTIVITY = activity;
         this.CONTEXT = context;
-        this.ROUTE=route;
-        this.MAIL_CONTENT= new String []{"","Atlas Information",""};
-        this.NAME_FOLDER_MAIL="Pictures";
-        this.iIDLogo=R.raw.logos;
-        this.CONTENT_HTML="<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><title>Calculator PDF</title>";
-        this.CONTENT_CSS="<style type=\"text/css\">html, body {text-align: center;}#container{width: auto;height: auto;margin: auto;background: transparent !important;text-align: center;padding: 10px;color:#333;}#container h2 {margin: 0;padding: 0;color:white;}#header {width: auto;height:50px;box-shadow: 0px 0px 10px #8c0000;background: #8c0000;margin: auto;}.infoRight {width: 340px;height:50px;background:#CCC;float: right;border: 5px solid #FFF;font-weight:bold;}.infoLeft {width: 340px;height: 50px;background:#CCC;float: left;border: 5px solid #FFF;}.separator {width: auto;height: 30px;}#observations {width: auto;height: auto;background:#FFF;float: left;border: 3px solid #CCC;}#observations p{text-align:left;padding:5px;}#observations h4{text-align:left;padding:5px;}</style>";
+        this.ROUTE = route;
+        this.MAIL_CONTENT = new String[]{"", "Atlas Information", ""};
+        this.NAME_FOLDER_MAIL = "Pictures";
+        this.iIDLogo = R.raw.logos;
+        this.CONTENT_HTML = "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><title>Calculator PDF</title>";
+        this.CONTENT_CSS = "<style type=\"text/css\">html, body {text-align: center;}#container{width: auto;height: auto;margin: auto;background: transparent !important;text-align: center;padding: 10px;color:#333;}#container h2 {margin: 0;padding: 0;color:white;}#header {width: auto;height:50px;box-shadow: 0px 0px 10px #8c0000;background: #8c0000;margin: auto;}.infoRight {width: 340px;height:50px;background:#CCC;float: right;border: 5px solid #FFF;font-weight:bold;}.infoLeft {width: 340px;height: 50px;background:#CCC;float: left;border: 5px solid #FFF;}.separator {width: auto;height: 30px;}#observations {width: auto;height: auto;background:#FFF;float: left;border: 3px solid #CCC;}#observations p{text-align:left;padding:5px;}#observations h4{text-align:left;padding:5px;}</style>";
 
 
     }
@@ -143,4 +153,58 @@ public class General {
 
         return animation;
     }
+
+    public static final void createFile() {
+        File file = new File(ROUTE + "/" + FILE);
+
+        if (!file.isDirectory()) {
+            file.mkdirs();
+        }
+
+
+    }
+
+    public static final void readerPDF() {
+
+        String sRoute = ROUTE + "/" + FILE + "/" + NAME_FILE;
+        File fileViewPDF = new File(sRoute);
+
+        if (!fileViewPDF.exists()) {
+
+            try {
+
+
+                AssetManager assetManager = ACTIVITY.getAssets();
+                InputStream inputStream = assetManager.open(NAME_FILE);
+                OutputStream outputStream = new FileOutputStream(sRoute);
+
+                byte[] buf = new byte[1024];
+                int len;
+
+                while ((len = inputStream.read(buf)) > 0) {
+                    outputStream.write(buf, 0, len);
+                }
+
+
+                inputStream.close();
+                inputStream = null;
+                outputStream.flush();
+                outputStream.close();
+                outputStream = null;
+
+                readerPDF();
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(fileViewPDF), "application/pdf");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            ACTIVITY.startActivity(intent);
+        }
+    }
 }
+
