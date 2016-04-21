@@ -19,10 +19,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 import Class.*;
 import ViewFragment.ContainerFragment;
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menuListener(iDateIntent);
             selectionTitle(iDateIntent);
             bValidaLoad = false;
+            General.createFile();
 
         } else {
             getSupportActionBar().setTitle(sTitleApplication);
@@ -117,10 +122,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             General.deleteCache(this);
         } else {
-            String sNameFile = "Productos_Tecnofarma.pdf";
+            /*String sNameFile = "Asofarma_Productos.pdf";
             String sUri = "file://" + getFilesDir() + "/" + sNameFile;
             LoadPdf loadPdf = new LoadPdf(sUri, sNameFile);
-            loadPdf.CopyReadAssets();
+            loadPdf.CopyReadAssets();*/
+            General.createFile();
+            General.readerPDF();
+
 
         }
         try {
