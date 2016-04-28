@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -35,7 +34,7 @@ public class General {
     public static int iIDLogo;
     public static String CONTENT_HTML;
     public static String CONTENT_CSS;
-    public static final String PASSWORD = "tecnofarma";
+    public static final String PASSWORD = "iltuxam";
     public static final String FILE = PASSWORD;
     public static final String NAME_FILE = "Productos_Tecnofarma.pdf";
 
